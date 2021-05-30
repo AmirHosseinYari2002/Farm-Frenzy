@@ -14,4 +14,12 @@ public class Mill extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static Mill millInstance;
+    public static Mill getInstance(){
+        if (millInstance==null){
+            millInstance = new Mill();
+        }
+        return millInstance;
+    }
 }

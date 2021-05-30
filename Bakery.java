@@ -14,4 +14,12 @@ public class Bakery extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static Bakery bakeryInstance;
+    public static Bakery getInstance(){
+        if (bakeryInstance==null){
+            bakeryInstance = new Bakery();
+        }
+        return bakeryInstance;
+    }
 }

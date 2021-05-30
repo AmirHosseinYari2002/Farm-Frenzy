@@ -14,4 +14,12 @@ public class WeavingWS extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static WeavingWS weavingWSInstance;
+    public static WeavingWS getInstance(){
+        if (weavingWSInstance==null){
+            weavingWSInstance = new WeavingWS();
+        }
+        return weavingWSInstance;
+    }
 }

@@ -14,4 +14,12 @@ public class SewingWS extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static SewingWS sewingWSInstance;
+    public static SewingWS getInstance(){
+        if (sewingWSInstance==null){
+            sewingWSInstance = new SewingWS();
+        }
+        return sewingWSInstance;
+    }
 }

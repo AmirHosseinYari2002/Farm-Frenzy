@@ -14,4 +14,12 @@ public class IceCreamSelling extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static IceCreamSelling iceCreamSellingInstance;
+    public static IceCreamSelling getInstance(){
+        if (iceCreamSellingInstance==null){
+            iceCreamSellingInstance = new IceCreamSelling();
+        }
+        return iceCreamSellingInstance;
+    }
 }

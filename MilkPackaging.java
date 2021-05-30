@@ -14,4 +14,12 @@ public class MilkPackaging extends WorkShop{
         return output;
     }
 
+    //Singleton Design
+    private static MilkPackaging milkPackagingInstance;
+    public static MilkPackaging getInstance(){
+        if (milkPackagingInstance==null){
+            milkPackagingInstance = new MilkPackaging();
+        }
+        return milkPackagingInstance;
+    }
 }
