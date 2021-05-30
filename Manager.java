@@ -13,6 +13,7 @@ public class Manager {
     private ArrayList<Grass> removeGrassList = new ArrayList<>();
     private ArrayList<Animal> removeAnimalList = new ArrayList<>();
     private ArrayList<Product> productsList = new ArrayList<>();
+    private ArrayList<Product> productsInBarn = new ArrayList<>();
     private ArrayList<Product> removeProductList = new ArrayList<>();
     private ArrayList<Cat> catsList = new ArrayList<>();
     private ArrayList<WorkShop> workShops = new ArrayList<>();
@@ -88,8 +89,10 @@ public class Manager {
     public void collectProducts(){
         for (Cat cat : catsList) {
             for (Product product : productsList) {
-                if (product.getX() == cat.X  &&  product.getY() == cat.Y){
-                    barn.setFreeSpace(barn.getFreeSpace()-product.getOccupiedSpace());
+                if (product.getX() == cat.X  &&  product.getY() == cat.Y  &&  Barn.getInstance().getFreeSpace() >= product.getBarnSpace()){
+                    productsList.remove(product);
+                    productsInBarn.add(product);
+                    barn.setFreeSpace(barn.getFreeSpace()-product.getBarnSpace());
                 }
             }
         }
@@ -98,8 +101,41 @@ public class Manager {
         Grass grass = new Grass(x,y);
         grassesList.add(grass);
     }
-    public void buyAnimal(String name){
-
+    public String buyAnimal(String name){
+        switch (name){
+            case "Buffalo" -> {
+                if (player.coins >= 400) {
+                    Buffalo buffalo = new Buffalo();
+                    domesticAnimalsList.add(buffalo);
+                    return buffalo.name;
+                }else return "Coins";
+            }
+            case "Cat" -> {
+                if (player.coins >= 150) {
+                    Cat cat = new Cat();
+                    catsList.add(cat);
+                }else return "Coins";
+            }
+            case "Hen" -> {
+                if (player.coins >= 100) {
+                    Hen hen = new Hen();
+                    domesticAnimalsList.add(hen);
+                }else return "Coins";
+            }
+            case "Hound" -> {
+                if (player.coins >= 100) {
+                    Hound hound = new Hound();
+                    houndsList.add(hound);
+                }else return "Coins";
+            }
+            case "Turkey" -> {
+                if (player.coins >= 200) {
+                    Turkey turkey = new Turkey();
+                    domesticAnimalsList.add(turkey);
+                }else return "Coins";
+            }
+        }
+        return "ERROR";
     }
     public void buyWorkshop(String name){
         for (WorkShop workShop : workShops) {
@@ -187,14 +223,41 @@ public class Manager {
         }
         System.out.println("ERROR! workshop not found!...");
     }
-    public void pickupProduct(int x, int y){
-
+    public String pickupProduct(int x, int y){
+        for (Product product : productsList) {
+            if (product.getX() == x  &&  product.getY() == y){
+                if (Barn.getInstance().getFreeSpace() >= product.getBarnSpace()) {
+                    removeProductList.add(product);
+                    productsInBarn.add(product);
+                }else return "barnSpace";
+            }
+        }
+        for (Product product : removeProductList) {
+            if (productsList.contains(product)) {
+                productsList.remove(product);
+                return product.getName();
+            }
+        }
+        return "wrongLocation";
     }
-    public void fillWaterBucket(){
-
+    public String fillWaterBucket(){
+        if (Well.getInstance().getRemainingWater() > 0)
+            return "haveWater";
+        else {
+            Well.getInstance().setRemainingWater(5);
+            return "filled";
+        }
     }
-    public void planting(int x, int y){
-
+    public int planting(int x, int y){
+        if (x >= 1  &&  x <= 6  &&  y >= 1  &&  y <= 6){
+            for (Grass grass : grassesList) {
+                if (grass.getX() == x  &&  grass.getY() == y)
+                    return 2;
+            }
+            Grass grass = new Grass(x,y);
+            grassesList.add(grass);
+            return 3;
+        }else return 1;
     }
     public void startingWorkshop(String name){
         for (WorkShop workShop : workShops) {

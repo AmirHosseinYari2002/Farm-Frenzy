@@ -8,10 +8,37 @@ public class InputProcessor {
     }
 
 
-    private void processBuyAnimal(String[] split){}
-    private void processPickupProduct(String[] split){}
-    private void processFillWaterBucket(){}
-    private void processPlanting(String[] split){}
+    private void processBuyAnimal(String[] split){
+        String manageError = manager.buyAnimal(split[1]);
+        if (manageError.equals("Coins")){
+            System.err.println("Sorry! You don't have enough coins");
+        }else if (manageError.equals("ERROR")){
+            System.err.println("Invalid Input!");
+        }else System.out.println(ANSI_PURPLE+"The purchase was successful.\nYou bought "+manageError);
+    }
+    private void processPickupProduct(String[] split){
+        String manageError = manager.pickupProduct(Integer.parseInt(split[1]),Integer.parseInt(split[2]));
+        if (manageError.equals("wrongLocation")){
+            System.err.println("ERROR! The selected location is incorrect.");
+        }else if (manageError.equals("barnSpace")){
+            System.err.println("You do not have enough space in the Barn !");
+        }else System.out.println(ANSI_YELLOW+manageError+" was transferred to Barn");
+    }
+    private void processFillWaterBucket(){
+        String manageError = manager.fillWaterBucket();
+        if (manageError.equals("haveWater"))
+            System.err.println("The bucket still has water. So you can not take water from the well");
+        else if (manageError.equals("filled"))
+            System.out.println(ANSI_GREEN+"The bucket of water was filled");
+    }
+    private void processPlanting(String[] split){
+        if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 1)
+            System.err.println("Invalid Input");
+        else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 2)
+            System.err.println("There is grass in these location !");
+        else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 3)
+            System.out.println(ANSI_CYAN+"Grass was planted");
+    }
     private void processStartingWorkshop(String[] split){}
     private void processCage(String[] split){}
     private void processGoingForwardTime(String[] split){}
