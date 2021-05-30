@@ -3,5 +3,4 @@ public abstract class Animal {
     protected int X;
     protected int Y;
     protected String name;
-    protected void move(){}
 }

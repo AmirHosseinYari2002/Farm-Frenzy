@@ -1,6 +1,6 @@
 import java.util.Random;
 
-public class Hound extends Temp{
+public class Hound extends Animal {
     Random random = new Random();
     public Hound() {
         this.price = 100;
