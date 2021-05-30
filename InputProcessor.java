@@ -40,11 +40,42 @@ public class InputProcessor {
             System.out.println(ANSI_CYAN+"Grass was planted");
     }
     private void processStartingWorkshop(String[] split){}
-    private void processCage(String[] split){}
+    private void processCage(String[] split){
+        int manageError = manager.cage(Integer.parseInt(split[1]),Integer.parseInt(split[2]));
+        if (manageError == -1)
+            System.err.println("There is no wild animal in this place !");
+        else
+            System.out.println(ANSI_GREEN+"Cage level increased\nnew cage level : "+manageError+ANSI_YELLOW+"\nWARNING! You must use the cage command in the next time units to be completely imprisoned, otherwise the level of the cage will decrease.");
+    }
     private void processGoingForwardTime(String[] split){}
-    private void processLoadingProducts(String[] split){}
-    private void processUnloadingProduct(String[] split){}
-    private void processStartTrip(){}
+    private void processLoadingProducts(String[] split){
+        String manageError = manager.loadingProducts(split[2],Integer.parseInt(split[3]));
+        if (manageError.equals("loaded"))
+            System.out.println(ANSI_BLUE+"Loaded successfully");
+        else if (manageError.equals("notEnoughSpace"))
+            System.err.println("Product space is more than car empty space !");
+        else if (manageError.equals("notEnoughProduct"))
+            System.err.println("This amount of product is not available in Barn !");
+        else if (manageError.equals("notInBarn"))
+            System.err.println("This product is not in Barn !");
+        else if (manageError.equals("Traveling"))
+            System.err.println("The car is transporting products to the city.\n"+ANSI_BLUE+"Car returns "+ (Car.getInstance().getTransferTime()-manager.checkTrip())+" time unit");
+    }
+    private void processUnloadingProduct(String[] split){
+        String manageError = manager.unLoadingProducts(split[2]);
+        if (manageError.equals("unLoaded"))
+            System.out.println(ANSI_YELLOW+"Unloaded successfully");
+        else if (manageError.equals("notEnoughSpace"))
+            System.err.println("The Barn does not have enough empty space So you can not unloaded this product.");
+        else if (manageError.equals("Invalid"))
+            System.err.println("This product has not been loaded before...");
+        else if (manageError.equals("Traveling"))
+            System.err.println("The car is transporting products to the city.\n"+ANSI_BLUE+"Car returns "+ (Car.getInstance().getTransferTime()-manager.checkTrip())+" time unit\"");
+    }
+    private void processStartTrip(){
+        manager.startTrip();
+        System.out.println(ANSI_CYAN+"The car started transporting products to the city.");
+    }
 
     public void run(){
         String input;
@@ -65,13 +96,14 @@ public class InputProcessor {
                     processCage(input.split("\\s+"));
                 }else if (input.matches("^(?i)turn\\s+(\\d+)\\s*$")){
                     processGoingForwardTime(input.split("\\s+"));
-                }else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s*$")){
+                }else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s+(\\d+)\\s*$")){
                     processLoadingProducts(input.split("\\s+"));
                 }else if (input.matches("^(?i)(truck\\s+unload)\\s+(\\w+)\\s*$")){
                     processUnloadingProduct(input.split("\\s+"));
                 }else if (input.matches("^(?i)(truck\\s+go)\\s*$")){
                     processStartTrip();
                 }else System.err.println("Invalid Input !");
+                manager.upgradeGame();
             }
         }
     }
