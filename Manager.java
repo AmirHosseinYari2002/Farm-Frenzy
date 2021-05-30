@@ -6,7 +6,7 @@ import java.util.Map;
 import java.util.logging.Level;
 
 public class Manager {
-
+    Levels level;
     private ArrayList<DomesticAnimal> domesticAnimalsList = new ArrayList<>();
     private ArrayList<WildAnimal> wildAnimalsList = new ArrayList<>();
     private ArrayList<Hound> houndsList = new ArrayList<>();
@@ -21,6 +21,9 @@ public class Manager {
     private HashMap<Product,Integer> loadedProducts = new HashMap<>();
     private HashMap<Product,Integer> unLoadedProduct = new HashMap<>();
 
+    public Manager(Levels level) {
+        this.level = level;
+    }
 
     private Grass shortestDistanceToEatGrass(int x, int y){}//TODO
     private void move(){}//TODO
@@ -262,7 +265,7 @@ public class Manager {
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
                 //if workshop's input product exist in the barn then
-                //workShop.setStartTime(Level.time);
+                workShop.setStartTime(level.time);
                 System.out.println(workShop.name+" start working, your product will be ready by" +
                         workShop.productionTime.n+" TIME.");
                 return;
@@ -359,5 +362,44 @@ public class Manager {
         collectProducts();
         move();
     }
+    public void checkTasks(){
+        if (level.tasks.containsKey("Coin")){
+            if (level.coins == level.tasks.get("Coin")){
+                level.tasks.remove("Coin");
+                System.out.println("Good! You complete a task. Your coins reach the desired amount.");
+            }
+        }
+        for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
+            if (level.tasks.containsKey(domesticAnimal.name)){
+                int animalNum = level.tasks.get(domesticAnimal.name) - 1;
+                if (animalNum == 0)
+                    level.tasks.remove(domesticAnimal.name);
+                level.tasks.replace(domesticAnimal.name,animalNum);
+            }
+        }
+        for (Map.Entry<Product,Integer> entry : productsInBarn.entrySet()){
+            if (level.tasks.containsKey(entry.getKey().getName())){
+                int productNum = level.tasks.get(entry.getKey().getName())-1;
+                if (productNum == 0)
+                    level.tasks.remove(entry.getKey().getName());
+                level.tasks.replace(entry.getKey().getName(),productNum);
+            }
+        }
+    }
+    public boolean isLevelCompleted(){
+        if (level.tasks.isEmpty()){
+            level.finishTime = new TIME(level.time);
+            if (level.finishTime.n <= level.goldenFinishTime.n){
+                level.status = "Golden";
+            }
+            else if (level.finishTime.n <= level.silverFinishTime.n){
+                level.status = "Silver";
+            }
+            else{
+                level.status = "Bronze";
+            }
+            return true;
+        }
+        return false;
+    }
 }
-
