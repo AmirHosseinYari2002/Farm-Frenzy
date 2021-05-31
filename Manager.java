@@ -231,85 +231,85 @@ public class Manager {
         }
         return "ERROR";
     }
-    public void buyWorkshop(String name){
+    public String buyWorkshop(String name){
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
-                System.out.println("You have bought this workshop before...");
-                return;
+                return "have";
             }
         }
+        StringBuilder stringBuilder = new StringBuilder("");
         switch (name) {
             case "bakery" -> {
                 if (level.coins >= Bakery.getInstance().getCost()){
                     workShops.add(Bakery.getInstance());
                     level.coins -= Bakery.getInstance().getCost();
-                    System.out.println("Great! you bought a bakery." +
-                            "now you can create bread from flour.");
+                    stringBuilder.append(Bakery.getInstance().input).append(" ").append(Bakery.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");
+                    return "coins";
             }
             case "iceCreamSelling" -> {
                 if (level.coins >= IceCreamSelling.getInstance().getCost()){
                     workShops.add(IceCreamSelling.getInstance());
                     level.coins -= IceCreamSelling.getInstance().getCost();
-                    System.out.println("Great! you bought an ice cream selling." +
-                            "now you can make ice cream with pocket milk.");
+                    stringBuilder.append(IceCreamSelling.getInstance().input).append(" ").append(IceCreamSelling.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");            }
+                    return "coins";
+            }
             case "milkPackaging" -> {
                 if (level.coins >= MilkPackaging.getInstance().getCost()){
                     workShops.add(MilkPackaging.getInstance());
                     level.coins -= MilkPackaging.getInstance().getCost();
-                    System.out.println("Great! you bought a milk packaging workshop." +
-                            " now you can package milk.");
+                    stringBuilder.append(MilkPackaging.getInstance().input).append(" ").append(MilkPackaging.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");            }
+                    return "coins";
+            }
             case "mill" -> {
                 if (level.coins >= Mill.getInstance().getCost()){
                     workShops.add(Mill.getInstance());
                     level.coins -= Mill.getInstance().getCost();
-                    System.out.println("Great! you bought a mill." +
-                            " now you can make flour with egg.");
+                    stringBuilder.append(Mill.getInstance().input).append(" ").append(Mill.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");            }
+                    return "coins";
+            }
             case "sewing" -> {
                 if (level.coins >= SewingWS.getInstance().getCost()){
                     workShops.add(SewingWS.getInstance());
                     level.coins -= SewingWS.getInstance().getCost();
-                    System.out.println("Great! you bought a sewing workshop." +
-                            " now you can create shirt with cloth.");
+                    stringBuilder.append(SewingWS.getInstance().input).append(" ").append(SewingWS.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");            }
+                    return "coins";
+            }
             case "weaving" -> {
                 if (level.coins >= WeavingWS.getInstance().getCost()){
                     workShops.add(WeavingWS.getInstance());
                     level.coins -= WeavingWS.getInstance().getCost();
-                    System.out.println("Great! you bought a weaving workshop." +
-                            " now you can change feather to cloth.");
+                    stringBuilder.append(WeavingWS.getInstance().input).append(" ").append(WeavingWS.getInstance().output);
                 }
                 else
-                    System.out.println("Sorry! You don't have enough coins");            }
+                    return "coins";
+            }
         }
+        if (stringBuilder.length() != 0)
+            return stringBuilder.toString();
+        else return "Invalid";
     }
-    public void upgradeWorkshop(String name){
+    public String upgradeWorkshop(String name){
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
                 if (level.coins >= workShop.getUpgradeCost()){
                     workShop.upgrading();
                     level.coins -= workShop.getUpgradeCost();
-                    System.out.println("Perfect! "+workShop.name+" upgraded to level 2.");
-                    return;
+                    return workShop.name;
                 }
-                System.out.println("Sorry! you don't have enough coin");
-                return;
+                return "coins";
             }
         }
-        System.out.println("ERROR! workshop not found!...");
+        return "error";
     }
     public String pickupProduct(int x, int y){
         for (Product product : productsList) {
@@ -349,16 +349,20 @@ public class Manager {
             return 3;
         }else return 1;
     }
-    public void startingWorkshop(String name){
+    public String startingWorkshop(String name){
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
-                //if workshop's input product exist in the barn then
-                workShop.setStartTime(level.time);
-                System.out.println(workShop.name+" start working, your product will be ready by" +
-                        workShop.productionTime.n+" TIME.");
-                return;
+                if (productsInBarn.get(workShop.input) > workShop.level) {
+                    if (productsInBarn.get(workShop.input)-workShop.level == 0) {
+                        productsInBarn.remove(workShop.input);
+                    }else productsInBarn.replace(workShop.input,productsInBarn.get(workShop.input)-workShop.level);
+                    workShop.setStartTime(level.time);
+                    return workShop.name.concat(String.valueOf(workShop.productionTime));
+                }
+                return "b";
             }
         }
+        return "a";
     }
     public void checkWorkshops(){
         for (WorkShop workShop : workShops) {
