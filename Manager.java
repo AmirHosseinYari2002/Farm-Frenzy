@@ -3,10 +3,12 @@ import com.google.gson.Gson;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Random;
 import java.util.logging.Level;
 
 public class Manager {
     Levels level;
+    Random random = new Random();
     private ArrayList<DomesticAnimal> domesticAnimalsList = new ArrayList<>();
     private ArrayList<WildAnimal> wildAnimalsList = new ArrayList<>();
     private ArrayList<Hound> houndsList = new ArrayList<>();
@@ -25,8 +27,90 @@ public class Manager {
         this.level = level;
     }
 
-    private Grass shortestDistanceToEatGrass(int x, int y){}//TODO
-    private void move(){}//TODO
+    private Grass shortestDistanceToEatGrass(int x, int y){
+        double  shortestDistance = 1000;
+        Grass nearestGrass = new Grass();
+        for (Grass grass : grassesList) {
+            if (Math.sqrt((grass.getX()-x)*(grass.getX()-x) + (grass.getY()-y)*(grass.getY()-y)) < shortestDistance){
+                shortestDistance = Math.sqrt((grass.getX()-x)*(grass.getX()-x) + (grass.getY()-y)*(grass.getY()-y));
+                nearestGrass.setX(grass.getX());
+                nearestGrass.setY(grass.getY());
+            }
+        }
+        return nearestGrass;
+    }
+    private Product shortestDistanceToCollectProduct(int x, int y){
+        double  shortestDistance = 1000;
+        Product nearestProduct = new Product();
+        for (Product product : productsList) {
+            if (Math.sqrt((product.getX()-x)*(product.getX()-x) + (product.getY()-y)*(product.getY()-y)) < shortestDistance){
+                shortestDistance = Math.sqrt((product.getX()-x)*(product.getX()-x) + (product.getY()-y)*(product.getY()-y));
+                nearestProduct.setX(product.getX());
+                nearestProduct.setY(product.getY());
+            }
+        }
+        return nearestProduct;
+    }
+    private void move(){
+        for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
+            if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() != domesticAnimal.X  &&  shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() != domesticAnimal.Y) {
+                if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
+                    domesticAnimal.X++;
+                } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() < domesticAnimal.X) {
+                    domesticAnimal.X--;
+                } else {
+                    if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
+                        domesticAnimal.Y++;
+                    } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
+                        domesticAnimal.X--;
+                    }
+                }
+            }
+        }
+        for (Cat cat : catsList) {
+            if (shortestDistanceToCollectProduct(cat.X,cat.Y).getX() != cat.X  &&  shortestDistanceToCollectProduct(cat.X,cat.Y).getY() != cat.Y) {
+                if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() > cat.X) {
+                    cat.X++;
+                } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() < cat.X) {
+                    cat.X--;
+                } else {
+                    if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() > cat.Y) {
+                        cat.Y++;
+                    } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() < cat.Y) {
+                        cat.Y--;
+                    }
+                }
+            }
+        }
+        for (Hound hound : houndsList) {
+            int a = 1;
+            if (random.nextInt(2) == 0){
+                if (hound.X == 6  ||  hound.X == 1){
+                    a = -a;
+                }
+                hound.X += a;
+            }else {
+                if (hound.Y == 6  ||  hound.Y == 1){
+                    a = -a;
+                }
+                hound.Y += a;
+            }
+        }
+        for (WildAnimal wildAnimal : wildAnimalsList) {
+            int a = 1;
+            if (random.nextInt(2) == 0){
+                if (wildAnimal.X == 6  ||  wildAnimal.X == 1){
+                    a = -a;
+                }
+                wildAnimal.X += a;
+            }else {
+                if (wildAnimal.Y == 6  ||  wildAnimal.Y == 1){
+                    a = -a;
+                }
+                wildAnimal.Y += a;
+            }
+        }
+    }
     private void eatGrass(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             for (Grass grass : grassesList) {
@@ -67,6 +151,10 @@ public class Manager {
                     removeProductList.add(product);
                 }
             }
+        }
+        for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
+            if (domesticAnimal.remainingLife == 0)
+                removeAnimalList.add(domesticAnimal);
         }
         for (Product product : removeProductList) {
             if (productsList.contains(product))
@@ -111,32 +199,32 @@ public class Manager {
         switch (name){
             case "Buffalo" -> {
                 if (player.coins >= 400) {
-                    Buffalo buffalo = new Buffalo();
+                    Buffalo buffalo = new Buffalo(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(buffalo);
                     return buffalo.name;
                 }else return "Coins";
             }
             case "Cat" -> {
                 if (player.coins >= 150) {
-                    Cat cat = new Cat();
+                    Cat cat = new Cat(random.nextInt(6)+1,random.nextInt(6)+1);
                     catsList.add(cat);
                 }else return "Coins";
             }
             case "Hen" -> {
                 if (player.coins >= 100) {
-                    Hen hen = new Hen();
+                    Hen hen = new Hen(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(hen);
                 }else return "Coins";
             }
             case "Hound" -> {
                 if (player.coins >= 100) {
-                    Hound hound = new Hound();
+                    Hound hound = new Hound(random.nextInt(6)+1,random.nextInt(6)+1);
                     houndsList.add(hound);
                 }else return "Coins";
             }
             case "Turkey" -> {
                 if (player.coins >= 200) {
-                    Turkey turkey = new Turkey();
+                    Turkey turkey = new Turkey(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(turkey);
                 }else return "Coins";
             }

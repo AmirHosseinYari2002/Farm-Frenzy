@@ -2,10 +2,10 @@ import java.util.Random;
 
 public class Cat extends Animal {
     Random random = new Random();
-    public Cat() {
+    public Cat(int x, int y) {
         this.price = 150;
-        this.X = random.nextInt(6)+1;
-        this.Y = random.nextInt(6)+1;
+        this.X = x;
+        this.Y = y;
         this.name = "Cat";
     }
 }

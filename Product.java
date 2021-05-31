@@ -18,6 +18,12 @@ public class Product {
     public String getName() {
         return name;
     }
+    public void setX(int x) {
+        X = x;
+    }
+    public void setY(int y) {
+        Y = y;
+    }
 
     public Product(String name, int sellingPrice, int barnSpace, TIME disappearTime, int X, int Y) {
         this.name = name;
@@ -26,6 +32,9 @@ public class Product {
         this.disappearTime = disappearTime;
         this.X = X;
         this.Y = Y;
+    }
+
+    public Product() {
     }
 
     @Override
