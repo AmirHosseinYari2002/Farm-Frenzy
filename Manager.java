@@ -8,7 +8,7 @@ import java.util.logging.Level;
 
 public class Manager {
     Levels level;
-    Random random = new Random();
+    static Random random = new Random();
     private ArrayList<DomesticAnimal> domesticAnimalsList = new ArrayList<>();
     private ArrayList<WildAnimal> wildAnimalsList = new ArrayList<>();
     private ArrayList<Hound> houndsList = new ArrayList<>();
@@ -387,9 +387,7 @@ public class Manager {
         }
         return -1;
     }//TODO decrease cage level
-    public void goingForwardTime(int n){
-
-    }
+    public void goingForwardTime(int n){}
     public String loadingProducts(String name, int amount){
         if (checkTrip() != 0)
             return "Traveling";
