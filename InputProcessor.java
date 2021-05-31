@@ -106,6 +106,23 @@ public class InputProcessor {
         }else
             System.out.println(ANSI_PURPLE+"Perfect! "+manageError+" upgraded to level 2.");
     }
+    private void updateGame(){
+        manager.move();
+        manager.eatGrass();
+        manager.reduceLife();
+        String checkWorkshop = manager.checkWorkshops();
+        if (!checkWorkshop.equals("notReady"))
+            System.out.println(ANSI_GREEN+checkWorkshop+" producing process finished."+" your product is ready.");
+        manager.collectProducts();
+        manager.destroyDomesticAnimalAndProduct();
+        manager.destroyWildAnimal();
+        String task = manager.checkTasks();
+        if (task.equals("coins")){
+            System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
+        }else if (task != null){
+            System.out.println(ANSI_CYAN+"Good! You complete a task. Your "+task+" reach the desired amount.");
+        }
+    }
 
     public void run(){
         String input;

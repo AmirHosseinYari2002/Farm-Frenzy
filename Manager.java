@@ -51,7 +51,7 @@ public class Manager {
         }
         return nearestProduct;
     }
-    private void move(){
+    public void move(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() != domesticAnimal.X  &&  shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() != domesticAnimal.Y) {
                 if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
@@ -111,7 +111,7 @@ public class Manager {
             }
         }
     }
-    private void eatGrass(){
+    public void eatGrass(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             for (Grass grass : grassesList) {
                 if (grass.getX() == domesticAnimal.X  &&  grass.getY() == domesticAnimal.Y  &&  domesticAnimal.remainingLife <= 50){
@@ -126,7 +126,7 @@ public class Manager {
             }
         }
     }
-    private void reduceLife(){
+    public void reduceLife(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             domesticAnimal.remainingLife -= 10;
             if (domesticAnimal.remainingLife <= 0){
@@ -139,7 +139,7 @@ public class Manager {
             }
         }
     }
-    private void destroyDomesticAnimalAndProduct(){
+    public void destroyDomesticAnimalAndProduct(){
         for (WildAnimal wildAnimal : wildAnimalsList) {
             for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
                 if (wildAnimal.X == domesticAnimal.X  &&  wildAnimal.Y == domesticAnimal.Y){
@@ -165,7 +165,7 @@ public class Manager {
                 domesticAnimalsList.remove(animal);
         }
     }
-    private void destroyWildAnimal(){
+    public void destroyWildAnimal(){
         for (Hound hound : houndsList) {
             for (WildAnimal wildAnimal : wildAnimalsList) {
                 if (hound.X == wildAnimal.X  &&  hound.Y == wildAnimal.Y){
@@ -182,7 +182,7 @@ public class Manager {
         }
 
     }
-    private void collectProducts(){
+    public void collectProducts(){
         for (Cat cat : catsList) {
             for (Product product : productsList) {
                 if (product.getX() == cat.X  &&  product.getY() == cat.Y  &&  Barn.getInstance().getFreeSpace() >= product.getBarnSpace()){
@@ -364,16 +364,16 @@ public class Manager {
         }
         return "a";
     }
-    public void checkWorkshops(){
+    public String checkWorkshops(){
         for (WorkShop workShop : workShops) {
             if (workShop.isProductReady(level.time)){
                 Product product = workShop.producing();
                 productsList.add(product);
                 workShop.setStartTime(new TIME(0));
-                System.out.println(workShop.name+" producing process finished." +
-                        " your product is ready.");
+                return workShop.name;
             }
         }
+        return "notReady";
     }
     public int cage(int x, int y){
         for (WildAnimal wildAnimal : wildAnimalsList) {
@@ -444,37 +444,34 @@ public class Manager {
             return TIME.diff(level.time,Car.getInstance().getStartTrip());
         else return 0;
     }
-    public void upgradeGame(){
-        eatGrass();
-        reduceLife();
-        destroyWildAnimal();
-        destroyDomesticAnimalAndProduct();
-        collectProducts();
-        move();
-    }
-    public void checkTasks(){
+    public String checkTasks(){
         if (level.tasks.containsKey("Coin")){
             if (level.coins == level.tasks.get("Coin")){
                 level.tasks.remove("Coin");
-                System.out.println("Good! You complete a task. Your coins reach the desired amount.");
+                return "coins";
             }
         }
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             if (level.tasks.containsKey(domesticAnimal.name)){
                 int animalNum = level.tasks.get(domesticAnimal.name) - 1;
-                if (animalNum == 0)
+                if (animalNum == 0) {
                     level.tasks.remove(domesticAnimal.name);
+                    return domesticAnimal.name;
+                }
                 level.tasks.replace(domesticAnimal.name,animalNum);
             }
         }
         for (Map.Entry<Product,Integer> entry : productsInBarn.entrySet()){
             if (level.tasks.containsKey(entry.getKey().getName())){
                 int productNum = level.tasks.get(entry.getKey().getName())-1;
-                if (productNum == 0)
+                if (productNum == 0) {
                     level.tasks.remove(entry.getKey().getName());
+                    return entry.getKey().getName();
+                }
                 level.tasks.replace(entry.getKey().getName(),productNum);
             }
         }
+        return null;
     }
     public boolean isLevelCompleted(){
         if (level.tasks.isEmpty()){
