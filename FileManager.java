@@ -38,6 +38,33 @@ public class FileManager {
         }
     }
 
+    public static void replace(File file, String replace, String input) {
+        try {
+            ArrayList<String> text = new ArrayList<>();
+            Scanner scanner = new Scanner(file);
+            FileWriter fileWriter = new FileWriter(file,true);
+            while (scanner.hasNext()){
+                String line = scanner.nextLine();
+                if (!line.startsWith(replace)){
+                    text.add(line);
+                }else {
+                    text.add(input);
+                }
+            }
+            FileWriter fileWriter1 = new FileWriter(file);
+            fileWriter1.write("");
+            fileWriter1.close();
+            for (String str : text){
+                fileWriter.append(str+"\n");
+            }
+            fileWriter.close();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
     public static boolean isFind(File file, String input) {
         try {
             Scanner scanner = new Scanner(file);

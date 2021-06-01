@@ -263,7 +263,7 @@ public class Manager {
                 if (level.coins >= Bakery.getInstance().getCost()){
                     workShops.add(Bakery.getInstance());
                     level.coins -= Bakery.getInstance().getCost();
-                    stringBuilder.append(Bakery.getInstance().input).append(" ").append(Bakery.getInstance().output);
+                    stringBuilder.append("bakery").append(Bakery.getInstance().input).append(" ").append(Bakery.getInstance().output);
                 }
                 else
                     return "coins";
@@ -272,7 +272,7 @@ public class Manager {
                 if (level.coins >= IceCreamSelling.getInstance().getCost()){
                     workShops.add(IceCreamSelling.getInstance());
                     level.coins -= IceCreamSelling.getInstance().getCost();
-                    stringBuilder.append(IceCreamSelling.getInstance().input).append(" ").append(IceCreamSelling.getInstance().output);
+                    stringBuilder.append("iceCreamSelling").append(IceCreamSelling.getInstance().input).append(" ").append(IceCreamSelling.getInstance().output);
                 }
                 else
                     return "coins";
@@ -281,7 +281,7 @@ public class Manager {
                 if (level.coins >= MilkPackaging.getInstance().getCost()){
                     workShops.add(MilkPackaging.getInstance());
                     level.coins -= MilkPackaging.getInstance().getCost();
-                    stringBuilder.append(MilkPackaging.getInstance().input).append(" ").append(MilkPackaging.getInstance().output);
+                    stringBuilder.append("milkPacking").append(MilkPackaging.getInstance().input).append(" ").append(MilkPackaging.getInstance().output);
                 }
                 else
                     return "coins";
@@ -290,7 +290,7 @@ public class Manager {
                 if (level.coins >= Mill.getInstance().getCost()){
                     workShops.add(Mill.getInstance());
                     level.coins -= Mill.getInstance().getCost();
-                    stringBuilder.append(Mill.getInstance().input).append(" ").append(Mill.getInstance().output);
+                    stringBuilder.append("mill").append(Mill.getInstance().input).append(" ").append(Mill.getInstance().output);
                 }
                 else
                     return "coins";
@@ -299,7 +299,7 @@ public class Manager {
                 if (level.coins >= SewingWS.getInstance().getCost()){
                     workShops.add(SewingWS.getInstance());
                     level.coins -= SewingWS.getInstance().getCost();
-                    stringBuilder.append(SewingWS.getInstance().input).append(" ").append(SewingWS.getInstance().output);
+                    stringBuilder.append("sewing").append(SewingWS.getInstance().input).append(" ").append(SewingWS.getInstance().output);
                 }
                 else
                     return "coins";
@@ -308,7 +308,7 @@ public class Manager {
                 if (level.coins >= WeavingWS.getInstance().getCost()){
                     workShops.add(WeavingWS.getInstance());
                     level.coins -= WeavingWS.getInstance().getCost();
-                    stringBuilder.append(WeavingWS.getInstance().input).append(" ").append(WeavingWS.getInstance().output);
+                    stringBuilder.append("weaving").append(WeavingWS.getInstance().input).append(" ").append(WeavingWS.getInstance().output);
                 }
                 else
                     return "coins";

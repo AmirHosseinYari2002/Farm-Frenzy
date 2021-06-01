@@ -1,3 +1,4 @@
+import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
 
@@ -13,120 +14,171 @@ public class InputProcessor {
         String manageError = manager.buyAnimal(split[1]);
         if (manageError.equals("Coins")){
             System.err.println("Sorry! You don't have enough coins");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"don't have enough coins to buy animal");
         }else if (manageError.equals("ERROR")){
             System.err.println("Invalid Input!");
-        }else System.out.println(ANSI_PURPLE+"The purchase was successful.\nYou bought "+manageError);
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Invalid animal name entered");
+        }else {
+            System.out.println(ANSI_PURPLE + "The purchase was successful.\nYou bought " + manageError);
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"purchase animal was successful");
+        }
     }
     private void processPickupProduct(String[] split){
         String manageError = manager.pickupProduct(Integer.parseInt(split[1]),Integer.parseInt(split[2]));
         if (manageError.equals("wrongLocation")){
             System.err.println("ERROR! The selected location is incorrect.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"wrong  location was selected for pickup product");
         }else if (manageError.equals("barnSpace")){
             System.err.println("You do not have enough space in the Barn !");
-        }else System.out.println(ANSI_YELLOW+manageError+" was transferred to Barn");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Barn is full and product did not picked up");
+        }else{
+            System.out.println(ANSI_YELLOW+manageError+" was transferred to Barn");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"product picked up");
+        }
     }
     private void processFillWaterBucket(){
         String manageError = manager.fillWaterBucket();
-        if (manageError.equals("haveWater"))
+        if (manageError.equals("haveWater")) {
             System.err.println("The bucket still has water. So you can not take water from the well");
-        else if (manageError.equals("filled"))
-            System.out.println(ANSI_GREEN+"The bucket of water was filled");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"The bucket still has water");
+        }
+        else if (manageError.equals("filled")) {
+            System.out.println(ANSI_GREEN + "The bucket of water was filled");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"The bucket of water was filled");
+        }
     }
     private void processPlanting(String[] split){
-        if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 1)
+        if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 1) {
             System.err.println("Invalid Input");
-        else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 2)
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Wrong location for planting");
+        }else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 2) {
             System.err.println("There is grass in these location !");
-        else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 3)
-            System.out.println(ANSI_CYAN+"Grass was planted");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"There is grass in these location");
+        }else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 3) {
+            System.out.println(ANSI_CYAN + "Grass was planted");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Grass was planted");
+        }
     }
     private void processStartingWorkshop(String[] split){
         String manageError = manager.startingWorkshop(split[1]);
         if (manageError.equals("a")){
             System.err.println("You do not have this workshop on your farm !");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"do not have this workshop for starting workshop");
         }else if (manageError.equals("b")){
             System.err.println("You do not have the raw materials to produce the product !");
-        }else
-            System.out.println(ANSI_CYAN+manageError.substring(0,manageError.length()-2) + " start working, your product will be ready by" + manageError.substring(manageError.length()-2) + " TIME.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"do not have the raw materials to produce the product");
+        }else {
+            System.out.println(ANSI_CYAN + manageError.substring(0, manageError.length() - 2) + " start working, your product will be ready by" + manageError.substring(manageError.length() - 2) + " TIME.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Workshop start working");
+        }
     }
     private void processCage(String[] split){
         int manageError = manager.cage(Integer.parseInt(split[1]),Integer.parseInt(split[2]));
-        if (manageError == -1)
+        if (manageError == -1) {
             System.err.println("There is no wild animal in this place !");
-        else
-            System.out.println(ANSI_GREEN+"Cage level increased\nnew cage level : "+manageError+ANSI_YELLOW+"\nWARNING! You must use the cage command in the next time units to be completely imprisoned, otherwise the level of the cage will decrease.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"The cage order location is incorrect");
+        }else {
+            System.out.println(ANSI_GREEN + "Cage level increased\nnew cage level : " + manageError + ANSI_YELLOW + "\nWARNING! You must use the cage command in the next time units to be completely imprisoned, otherwise the level of the cage will decrease.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Cage level increased");
+        }
     }
     private void processGoingForwardTime(String[] split){
         for (int i = 0; i < Integer.parseInt(split[1]); i++) {
             updateGame();
         }
         showInformation();
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Time go forward");
     }
     private void processLoadingProducts(String[] split){
         String manageError = manager.loadingProducts(split[2],Integer.parseInt(split[3]));
-        if (manageError.equals("loaded"))
-            System.out.println(ANSI_BLUE+"Loaded successfully");
-        else if (manageError.equals("notEnoughSpace"))
+        if (manageError.equals("loaded")) {
+            System.out.println(ANSI_BLUE + "Loaded successfully");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Loaded successfully");
+        }else if (manageError.equals("notEnoughSpace")) {
             System.err.println("Product space is more than car empty space !");
-        else if (manageError.equals("notEnoughProduct"))
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"not enough space to load in car");
+        }else if (manageError.equals("notEnoughProduct")){
             System.err.println("This amount of product is not available in Barn !");
-        else if (manageError.equals("notInBarn"))
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"not enough product in Barn");
+        }else if (manageError.equals("notInBarn")) {
             System.err.println("This product is not in Barn !");
-        else if (manageError.equals("Traveling"))
-            System.err.println("The car is transporting products to the city.\n"+ANSI_BLUE+"Car returns "+ (Car.getInstance().getTransferTime()-manager.checkTrip())+" time unit");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+" product is not in Barn");
+        }
+        else if (manageError.equals("Traveling")) {
+            System.err.println("The car is transporting products to the city.\n" + ANSI_BLUE + "Car returns " + (Car.getInstance().getTransferTime() - manager.checkTrip()) + " time unit");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"The car is traveling");
+        }
     }
     private void processUnloadingProduct(String[] split){
         String manageError = manager.unLoadingProducts(split[2]);
-        if (manageError.equals("unLoaded"))
-            System.out.println(ANSI_YELLOW+"Unloaded successfully");
-        else if (manageError.equals("notEnoughSpace"))
+        if (manageError.equals("unLoaded")) {
+            System.out.println(ANSI_YELLOW + "Unloaded successfully");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Unloaded successfully");
+        }else if (manageError.equals("notEnoughSpace")) {
             System.err.println("The Barn does not have enough empty space So you can not unloaded this product.");
-        else if (manageError.equals("Invalid"))
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"not enough space in Barn");
+        }else if (manageError.equals("Invalid")) {
             System.err.println("This product has not been loaded before...");
-        else if (manageError.equals("Traveling"))
-            System.err.println("The car is transporting products to the city.\n"+ANSI_BLUE+"Car returns "+ (Car.getInstance().getTransferTime()-manager.checkTrip())+" time unit\"");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"product has not been loaded");
+        }else if (manageError.equals("Traveling")) {
+            System.err.println("The car is transporting products to the city.\n" + ANSI_BLUE + "Car returns " + (Car.getInstance().getTransferTime() - manager.checkTrip()) + " time unit\"");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"The car is traveling");
+        }
     }
     private void processStartTrip(){
         manager.startTrip();
         System.out.println(ANSI_CYAN+"The car started transporting products to the city.");
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"The car started transporting");
     }
     private void processBuildWorkshop(String[] split){
         String manageError = manager.buyWorkshop(split[1]);
         if (manageError.equals("have")){
             System.err.println("You have bought this workshop before...");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"have bought this workshop");
         }else if (manageError.equals("coins")){
             System.err.println("Sorry! You don't have enough coins");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"don't have enough coins");
         }else if (manageError.equals("Invalid")){
             System.err.println("Invalid Input !");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Wrong name selected");
         }else {
             String[] word = manageError.split("\\s+");
-            System.out.println(ANSI_BLUE + "Great! you bought a " + manageError + "\nnow you can create "+word[1]+" from "+word[0]);
+            System.out.println(ANSI_BLUE + "Great! you bought a " + word[0] + "\nnow you can create "+word[2]+" from "+word[1]);
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"you bought "+word[0]);
         }
     }
     private void processUpgradeWorkshop(String[] split){
         String manageError = manager.upgradeWorkshop(split[2]);
         if (manageError.equals("error")){
             System.err.println("ERROR! workshop not found!...");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"workshop not found!");
         }else if (manageError.equals("coins")){
             System.err.println("Sorry! you don't have enough coin");
-        }else
-            System.out.println(ANSI_PURPLE+"Perfect! "+manageError+" upgraded to level 2.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"don't have enough coin to upgrade workshop");
+        }else {
+            System.out.println(ANSI_PURPLE + "Perfect! " + manageError + " upgraded to level 2.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+manageError + " upgraded");
+        }
     }
     private void updateGame(){
         manager.move();
         manager.eatGrass();
         manager.reduceLife();
         String checkWorkshop = manager.checkWorkshops();
-        if (!checkWorkshop.equals("notReady"))
-            System.out.println(ANSI_GREEN+checkWorkshop+" producing process finished."+" your product is ready.");
+        if (!checkWorkshop.equals("notReady")) {
+            System.out.println(ANSI_GREEN + checkWorkshop + " producing process finished." + " your product is ready.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"The product of "+checkWorkshop+" is ready");
+        }
         manager.collectProducts();
         manager.destroyDomesticAnimalAndProduct();
         manager.destroyWildAnimal();
         String task = manager.checkTasks();
         if (task.equals("coins")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"coins reach the desired amount");
         }else if (task != null){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your "+task+" reach the desired amount.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+task+" reach the desired amount.");
         }
     }
     private void showInformation(){
@@ -153,42 +205,38 @@ public class InputProcessor {
         for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
             System.out.println(entry.getKey()+" : "+entry.getValue()+"/"+manager.level.basicTasks.get(entry.getKey()));
         }
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Show information of map");
     }
 
     public void run(){
-        String input;
-        boolean logout = false;
-        while (!(input = scanner.nextLine()).equalsIgnoreCase("exit")){
-            while (!input.equalsIgnoreCase("logout")){
-                if (input.matches("^(?i)buy\\s+(\\w+)\\s*$")){
-                    processBuyAnimal(input.split("\\s+"));
-                }else if (input.matches("^(?i)pickup\\s+(\\d\\s+\\d)\\s*$")){
-                    processPickupProduct(input.split("\\s+"));
-                }else if (input.matches("^(?i)well\\s*$")){
-                    processFillWaterBucket();
-                }else if (input.matches("^(?i)plant\\s+(\\d\\s+\\d)\\s*$")){
-                    processPlanting(input.split("\\s+"));
-                }else if (input.matches("^(?i)work\\s+(\\w+)\\s*$")){
-                    processStartingWorkshop(input.split("\\s+"));
-                }else if (input.matches("^(?i)cage\\s+(\\d\\s+\\d)\\s*$")){
-                    processCage(input.split("\\s+"));
-                }else if (input.matches("^(?i)turn\\s+(\\d+)\\s*$")){
-                    processGoingForwardTime(input.split("\\s+"));
-                }else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s+(\\d+)\\s*$")){
-                    processLoadingProducts(input.split("\\s+"));
-                }else if (input.matches("^(?i)(truck\\s+unload)\\s+(\\w+)\\s*$")){
-                    processUnloadingProduct(input.split("\\s+"));
-                }else if (input.matches("^(?i)(truck\\s+go)\\s*$")){
-                    processStartTrip();
-                }else if (input.matches("^(?i)(Build)\\s+(\\w+)\\s*$")){
-                    processBuildWorkshop(input.split("\\s+"));
-                }else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")){
-                    processUpgradeWorkshop(input.split("\\s+"));
-                }else if (input.matches("(?i)(inquiry)")){
-                    showInformation();
-                }else System.err.println("Invalid Input !");
-            }
-        }
+        String input = scanner.nextLine();
+        if (input.matches("^(?i)buy\\s+(\\w+)\\s*$")){
+            processBuyAnimal(input.split("\\s+"));
+        }else if (input.matches("^(?i)pickup\\s+(\\d\\s+\\d)\\s*$")){
+            processPickupProduct(input.split("\\s+"));
+        }else if (input.matches("^(?i)well\\s*$")){
+            processFillWaterBucket();
+        }else if (input.matches("^(?i)plant\\s+(\\d\\s+\\d)\\s*$")){
+            processPlanting(input.split("\\s+"));
+        }else if (input.matches("^(?i)work\\s+(\\w+)\\s*$")){
+            processStartingWorkshop(input.split("\\s+"));
+        }else if (input.matches("^(?i)cage\\s+(\\d\\s+\\d)\\s*$")){
+            processCage(input.split("\\s+"));
+        }else if (input.matches("^(?i)turn\\s+(\\d+)\\s*$")){
+            processGoingForwardTime(input.split("\\s+"));
+        }else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s+(\\d+)\\s*$")){
+            processLoadingProducts(input.split("\\s+"));
+        }else if (input.matches("^(?i)(truck\\s+unload)\\s+(\\w+)\\s*$")){
+            processUnloadingProduct(input.split("\\s+"));
+        }else if (input.matches("^(?i)(truck\\s+go)\\s*$")){
+            processStartTrip();
+        }else if (input.matches("^(?i)(Build)\\s+(\\w+)\\s*$")){
+            processBuildWorkshop(input.split("\\s+"));
+        }else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")){
+            processUpgradeWorkshop(input.split("\\s+"));
+        }else if (input.matches("(?i)(inquiry)")){
+            showInformation();
+        }else System.err.println("Invalid Input !");
     }
 
     public static final String ANSI_GREEN = "\u001B[32m";

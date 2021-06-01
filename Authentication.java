@@ -2,6 +2,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.util.Date;
 import java.util.Scanner;
 
 public class Authentication {
@@ -23,10 +24,13 @@ public class Authentication {
         initUserPass();
         if (checkUserPass()){
             System.out.println(InputProcessor.ANSI_GREEN+"Signed In successfully. Welcome "+this.userName);
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Signed In successfully");
             player = initPlayer(this.userName);
         }
-        else
+        else {
             System.err.println("ERROR! Sign in failed because of wrong username and/or password.");
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Sign in failed");
+        }
         return player;
     }
 
@@ -52,6 +56,7 @@ public class Authentication {
         System.out.print(InputProcessor.ANSI_WHITE+"Enter your Username: ");
         String userNameInput = scanner.nextLine();
         if (!checkNewUsername(userNameInput)){
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Sign up failed");
             System.err.println("Sign up failed! this username already exist. use another username...");
             return null;
         }
@@ -60,6 +65,7 @@ public class Authentication {
         this.password = scanner.nextLine();
         addUser();
         System.out.println(InputProcessor.ANSI_GREEN+"Sign up successfully. Welcome "+this.userName);
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Sign up successfully");
         player = initPlayer(this.userName);
         return player;
     }
