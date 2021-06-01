@@ -17,6 +17,7 @@ public class Manager {
     private ArrayList<Animal> removeAnimalList = new ArrayList<>();
     private ArrayList<Product> productsList = new ArrayList<>();
     private HashMap<Product,Integer> productsInBarn = new HashMap<>();
+    private HashMap<Animal,Integer> animalInBarn = new HashMap<>();
     private ArrayList<Product> removeProductList = new ArrayList<>();
     private ArrayList<Cat> catsList = new ArrayList<>();
     private ArrayList<WorkShop> workShops = new ArrayList<>();
@@ -380,13 +381,22 @@ public class Manager {
             if (wildAnimal.X == x  &&  wildAnimal.Y == y){
                 wildAnimal.cageLevel++;
                 if (wildAnimal.cageLevel == wildAnimal.cageLevelRequired){
-                    wildAnimal.timeToStartIncarceration = level.time;
+                    if (Barn.getInstance().getFreeSpace() >= wildAnimal.OccupiedSpace){
+                        animalInBarn.put(wildAnimal,1);
+                        Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() - wildAnimal.OccupiedSpace);
+                    }
+                    removeAnimalList.add(wildAnimal);
                 }
                 return wildAnimal.cageLevel;
             }
         }
+        for (Animal animal : removeAnimalList) {
+            if (wildAnimalsList.contains(animal)){
+                wildAnimalsList.remove(animal);
+            }
+        }
         return -1;
-    }//TODO decrease cage level
+    }//TODO
     public void goingForwardTime(int n){}
     public String loadingProducts(String name, int amount){
         if (checkTrip() != 0)

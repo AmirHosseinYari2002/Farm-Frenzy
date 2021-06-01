@@ -154,7 +154,6 @@ public class InputProcessor {
                 }else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")){
                     processUpgradeWorkshop(input.split("\\s+"));
                 }else System.err.println("Invalid Input !");
-                manager.upgradeGame();
             }
         }
     }
