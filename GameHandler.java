@@ -7,33 +7,33 @@ public class GameHandler {
     Scanner scanner = new Scanner(System.in);
     public static Authentication authenticator = new Authentication();
     public void startGame(){
-        System.out.println("        **************************************************");
-        System.out.println("        ******      Farm Frenzy-SUT Edition       ********");
-        System.out.println("        **************************************************\n");
-        System.out.println("Welcome to Farm Frenzy-SUT Edition");
+        System.out.println(InputProcessor.ANSI_CYAN+"        **************************************************");
+        System.out.println("        ******      "+InputProcessor.ANSI_YELLOW+"Farm Frenzy-SUT Edition"+InputProcessor.ANSI_CYAN+"       ********");
+        System.out.println(InputProcessor.ANSI_CYAN+"        **************************************************\n");
+        System.out.println(InputProcessor.ANSI_PURPLE+"Welcome to Farm Frenzy-SUT Edition");
         int answer = 0;
         while (answer != 1 && answer != 2){
-            System.out.println("  1- Sign In    2- Sign up");
-            System.out.println("Choose option (1/2): ");
+            System.out.println(InputProcessor.ANSI_BLUE+"  1- Sign In    2- Sign up");
+            System.out.println(InputProcessor.ANSI_GREEN+"Choose option (1/2): ");
             answer = scanner.nextInt();
             switch (answer) {
                 case 1 -> player = authenticator.signIn();
                 case 2 -> player = authenticator.signUp();
-                default -> System.out.println("Invalid input...");
+                default -> System.err.println("Invalid input...");
             }
         }
         while (!scanner.nextLine().equals("exit")){
-            System.out.println("Player: "+player.getName());
-            System.out.println("If you want to exit Enter 'exit'");
+            System.out.println("Player: "+InputProcessor.ANSI_CYAN+player.getName());
+            System.out.println(InputProcessor.ANSI_YELLOW+"If you want to exit Enter 'exit'");
             System.out.println("Levels: ");
             for (int i = 0; i < player.getLevel(); i++) {
-                System.out.println("level "+i);
+                System.out.println(InputProcessor.ANSI_PURPLE+"level "+i);
             }
-            System.out.println("Enter number of level you want to play:");
+            System.out.println(InputProcessor.ANSI_WHITE+"Enter number of level you want to play:");
             int level = scanner.nextInt();
             while (level < 1 || level > player.getLevel()){
-                System.out.println("Sorry! you can't play this level...");
-                System.out.println("Enter level number you want to play:");
+                System.err.println("Sorry! you can't play this level...");
+                System.err.println("Enter level number you want to play:");
                 level = scanner.nextInt();
             }
             player.setCoins(player.getCoins()+startLevel(level));
@@ -49,22 +49,22 @@ public class GameHandler {
     }
 
     public static int startLevel(int levelNum){
-        System.out.println("Loading Level "+levelNum);
+        System.out.println(InputProcessor.ANSI_RED+"Loading Level "+levelNum);
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Levels level = new Levels(levelNum);
-        System.out.println("Level "+levelNum+" tasks:");
+        System.out.println(InputProcessor.ANSI_CYAN+"Level "+levelNum+" tasks:");
         for (Map.Entry<String, Integer> entry : level.tasks.entrySet()) {
-            System.out.println(entry.getKey() + ":" + entry.getValue().toString());
+            System.out.println(InputProcessor.ANSI_YELLOW+entry.getKey() + ":" + entry.getValue().toString());
         }
-        System.out.println("--------------------------------------------------");
+        System.out.println(InputProcessor.ANSI_CYAN+"--------------------------------------------------");
         Manager manager = new Manager(level,player);
         InputProcessor inputProcessor = new InputProcessor(manager);
         inputProcessor.run();
-        System.out.println("congratulations! you finished this level.");
+        System.out.println(InputProcessor.ANSI_GREEN+"congratulations! you finished this level.");
         System.out.println("Level status: Completed - "+level.status);
         int levelPrize = switch (level.status) {
             case "golden" -> level.goldenGiftCoin;

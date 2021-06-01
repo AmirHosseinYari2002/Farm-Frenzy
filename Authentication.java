@@ -11,22 +11,22 @@ public class Authentication {
     private static Scanner scanner = new Scanner(System.in);
 
     public void initUserPass(){
-        System.out.println("Enter your Username: ");
+        System.out.println(InputProcessor.ANSI_BLUE+"Enter your Username: ");
         this.userName = scanner.nextLine();
-        System.out.println("Enter your password: ");
+        System.out.println(InputProcessor.ANSI_BLUE+"Enter your password: ");
         this.password = scanner.nextLine();
     }
 
     public Player signIn(){
         Player player = null;
-        System.out.println("<<<<    Sign in panel   >>>>");
+        System.out.println(InputProcessor.ANSI_PURPLE+"<<<<    Sign in panel   >>>>");
         initUserPass();
         if (checkUserPass()){
-            System.out.println("Signed In successfully. Welcome "+this.userName);
+            System.out.println(InputProcessor.ANSI_GREEN+"Signed In successfully. Welcome "+this.userName);
             player = initPlayer(this.userName);
         }
         else
-            System.out.println("ERROR! Sign in failed because of wrong username and/or password.");
+            System.err.println("ERROR! Sign in failed because of wrong username and/or password.");
         return player;
     }
 
@@ -48,18 +48,18 @@ public class Authentication {
 
     public Player signUp(){
         Player player = null;
-        System.out.println("<<<<   Sign up panel   >>>>");
-        System.out.println("Enter your Username: ");
+        System.out.println(InputProcessor.ANSI_CYAN+"<<<<   Sign up panel   >>>>");
+        System.out.println(InputProcessor.ANSI_WHITE+"Enter your Username: ");
         String userNameInput = scanner.nextLine();
         if (checkNewUsername(userNameInput)){
-            System.out.println("Sign up failed! this username already exist. use another username...");
+            System.err.println("Sign up failed! this username already exist. use another username...");
             return null;
         }
         this.userName = userNameInput;
-        System.out.println("Enter your password: ");
+        System.out.println(InputProcessor.ANSI_WHITE+"Enter your password: ");
         this.password = scanner.nextLine();
         addUser();
-        System.out.println("Sign up successfully. Welcome "+this.userName);
+        System.out.println(InputProcessor.ANSI_GREEN+"Sign up successfully. Welcome "+this.userName);
         player = initPlayer(this.userName);
         return player;
     }
