@@ -1,4 +1,4 @@
-import com.google.gson.Gson;
+//import com.google.gson.Gson;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,6 +8,8 @@ import java.util.logging.Level;
 
 public class Manager {
     Levels level;
+    Player player;
+
     static Random random = new Random();
     private ArrayList<DomesticAnimal> domesticAnimalsList = new ArrayList<>();
     private ArrayList<WildAnimal> wildAnimalsList = new ArrayList<>();
@@ -23,8 +25,9 @@ public class Manager {
     private HashMap<Product,Integer> loadedProducts = new HashMap<>();
     private HashMap<Product,Integer> unLoadedProduct = new HashMap<>();
 
-    public Manager(Levels level) {
+    public Manager(Levels level, Player player) {
         this.level = level;
+        this.player = player;
     }
 
     private Grass shortestDistanceToEatGrass(int x, int y){
@@ -198,32 +201,32 @@ public class Manager {
     public String buyAnimal(String name){
         switch (name){
             case "Buffalo" -> {
-                if (player.coins >= 400) {
+                if (player.getCoins() >= 400) {
                     Buffalo buffalo = new Buffalo(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(buffalo);
                     return buffalo.name;
                 }else return "Coins";
             }
             case "Cat" -> {
-                if (player.coins >= 150) {
+                if (player.getCoins() >= 150) {
                     Cat cat = new Cat(random.nextInt(6)+1,random.nextInt(6)+1);
                     catsList.add(cat);
                 }else return "Coins";
             }
             case "Hen" -> {
-                if (player.coins >= 100) {
+                if (player.getCoins() >= 100) {
                     Hen hen = new Hen(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(hen);
                 }else return "Coins";
             }
             case "Hound" -> {
-                if (player.coins >= 100) {
+                if (player.getCoins() >= 100) {
                     Hound hound = new Hound(random.nextInt(6)+1,random.nextInt(6)+1);
                     houndsList.add(hound);
                 }else return "Coins";
             }
             case "Turkey" -> {
-                if (player.coins >= 200) {
+                if (player.getCoins() >= 200) {
                     Turkey turkey = new Turkey(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(turkey);
                 }else return "Coins";
