@@ -1,3 +1,4 @@
+import java.util.Map;
 import java.util.Scanner;
 
 public class InputProcessor {
@@ -55,7 +56,12 @@ public class InputProcessor {
         else
             System.out.println(ANSI_GREEN+"Cage level increased\nnew cage level : "+manageError+ANSI_YELLOW+"\nWARNING! You must use the cage command in the next time units to be completely imprisoned, otherwise the level of the cage will decrease.");
     }
-    private void processGoingForwardTime(String[] split){}
+    private void processGoingForwardTime(String[] split){
+        for (int i = 0; i < Integer.parseInt(split[1]); i++) {
+            updateGame();
+        }
+        showInformation();
+    }
     private void processLoadingProducts(String[] split){
         String manageError = manager.loadingProducts(split[2],Integer.parseInt(split[3]));
         if (manageError.equals("loaded"))
@@ -123,6 +129,31 @@ public class InputProcessor {
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your "+task+" reach the desired amount.");
         }
     }
+    private void showInformation(){
+        System.out.println(ANSI_BLUE+"Time : "+ manager.level.time.n);
+        System.out.println(ANSI_CYAN+"               Animals\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        for (DomesticAnimal domesticAnimal : manager.getDomesticAnimalsList()) {
+            System.out.println("|"+domesticAnimal.name+manager.space(10,domesticAnimal.name)+"|"+domesticAnimal.remainingLife+manager.space(5,"10")+"|"+domesticAnimal.X+manager.space(5,"1")+"|"+domesticAnimal.Y+manager.space(5,"1"));
+        }
+        for (WildAnimal wildAnimal : manager.getWildAnimalsList()) {
+            System.out.println("|"+wildAnimal.name+manager.space(10,wildAnimal.name)+"|"+(wildAnimal.cageLevelRequired-wildAnimal.cageLevel)+manager.space(5,"1")+"|"+wildAnimal.X+manager.space(5,"1")+"|"+wildAnimal.Y+manager.space(5,"1"));
+        }
+        for (Cat cat : manager.getCatsList()) {
+            System.out.println("|"+cat.name+manager.space(10,cat.name)+"|"+cat.X+manager.space(5,"1")+"|"+cat.Y+manager.space(5,"1"));
+        }
+        for (Hound hound : manager.getHoundsList()) {
+            System.out.println("|"+hound.name+manager.space(10,hound.name)+"|"+hound.X+manager.space(5,"1")+"|"+hound.Y+manager.space(5,"1"));
+        }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(ANSI_PURPLE+"               Products\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        for (Product product : manager.getProductsList()) {
+            System.out.println("|"+product.getName()+manager.space(10,product.getName())+"|"+product.getX()+manager.space(5,"1")+"|"+product.getY()+manager.space(5,"1"));
+        }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(ANSI_YELLOW+"Tasks : \n");
+        for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
+            System.out.println(entry.getKey()+" : "+entry.getValue()+"/"+manager.level.basicTasks.get(entry.getKey()));
+        }
+    }
 
     public void run(){
         String input;
@@ -153,6 +184,8 @@ public class InputProcessor {
                     processBuildWorkshop(input.split("\\s+"));
                 }else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")){
                     processUpgradeWorkshop(input.split("\\s+"));
+                }else if (input.matches("(?i)(inquiry)")){
+                    showInformation();
                 }else System.err.println("Invalid Input !");
             }
         }

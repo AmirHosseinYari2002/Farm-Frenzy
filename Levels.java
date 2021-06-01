@@ -16,8 +16,9 @@ public class Levels {
     int goldenGiftCoin;
     int silverGiftCoin;
     int bronzeGiftCoin;
-    HashMap<String,Integer> wildAnimals;
-    HashMap<String,Integer> tasks;
+    HashMap<String,Integer> wildAnimals = new HashMap<>();
+    HashMap<String,Integer> tasks = new HashMap<>();
+    HashMap<String,Integer> basicTasks = new HashMap<>();
 
     public Levels(int levelNum) {
         this.levelNum = levelNum;
@@ -43,6 +44,7 @@ public class Levels {
                     for (int i = 1; i < parts.length; i++) {
                         String[] parts2 = parts[i].split("-");
                         tasks.put(parts2[0],Integer.parseInt(parts2[1]));
+                        basicTasks.put(parts2[0],Integer.parseInt(parts2[1]));
                     }
                 }
                 String initFinishTime = "LevelFinishTime"+levelNum;

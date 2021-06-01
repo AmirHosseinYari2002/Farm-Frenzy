@@ -14,7 +14,7 @@ public class GameHandler {
         int answer = 0;
         while (answer != 1 && answer != 2){
             System.out.println(InputProcessor.ANSI_BLUE+"  1- Sign In    2- Sign up");
-            System.out.println(InputProcessor.ANSI_GREEN+"Choose option (1/2): ");
+            System.out.print(InputProcessor.ANSI_GREEN+"Choose option (1/2): ");
             answer = scanner.nextInt();
             switch (answer) {
                 case 1 -> player = authenticator.signIn();
@@ -23,17 +23,20 @@ public class GameHandler {
             }
         }
         while (!scanner.nextLine().equals("exit")){
+            int t = 0 ;
             System.out.println("Player: "+InputProcessor.ANSI_CYAN+player.getName());
             System.out.println(InputProcessor.ANSI_YELLOW+"If you want to exit Enter 'exit'");
-            System.out.println("Levels: ");
-            for (int i = 0; i < player.getLevel(); i++) {
-                System.out.println(InputProcessor.ANSI_PURPLE+"level "+i);
+            System.out.println(InputProcessor.ANSI_PURPLE+"Levels: ");
+            for (int i = 1; i < player.getLevel(); i++) {
+                System.out.println("level "+i);
+                t++;
             }
-            System.out.println(InputProcessor.ANSI_WHITE+"Enter number of level you want to play:");
+            if (t == 0) System.err.println("You have not completed a level yet");
+            System.out.print(InputProcessor.ANSI_WHITE+"Enter number of level you want to play:");
             int level = scanner.nextInt();
             while (level < 1 || level > player.getLevel()){
                 System.err.println("Sorry! you can't play this level...");
-                System.err.println("Enter level number you want to play:");
+                System.out.println(InputProcessor.ANSI_WHITE+"Enter level number you want to play:");
                 level = scanner.nextInt();
             }
             player.setCoins(player.getCoins()+startLevel(level));
@@ -49,7 +52,7 @@ public class GameHandler {
     }
 
     public static int startLevel(int levelNum){
-        System.out.println(InputProcessor.ANSI_RED+"Loading Level "+levelNum);
+        System.out.println(InputProcessor.ANSI_YELLOW+"Loading Level "+levelNum);
         try {
             TimeUnit.SECONDS.sleep(1);
         } catch (InterruptedException e) {

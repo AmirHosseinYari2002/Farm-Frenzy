@@ -26,6 +26,22 @@ public class Manager {
     private HashMap<Product,Integer> loadedProducts = new HashMap<>();
     private HashMap<Product,Integer> unLoadedProduct = new HashMap<>();
 
+    public ArrayList<DomesticAnimal> getDomesticAnimalsList() {
+        return domesticAnimalsList;
+    }
+    public ArrayList<WildAnimal> getWildAnimalsList() {
+        return wildAnimalsList;
+    }
+    public ArrayList<Hound> getHoundsList() {
+        return houndsList;
+    }
+    public ArrayList<Cat> getCatsList() {
+        return catsList;
+    }
+    public ArrayList<Product> getProductsList() {
+        return productsList;
+    }
+
     public Manager(Levels level, Player player) {
         this.level = level;
         this.player = player;
@@ -400,7 +416,6 @@ public class Manager {
         }
         return -1;
     }//TODO
-    public void goingForwardTime(int n){}
     public String loadingProducts(String name, int amount){
         if (checkTrip() != 0)
             return "Traveling";
@@ -501,5 +516,12 @@ public class Manager {
             return true;
         }
         return false;
+    }
+    public String space(int n,String word){
+        StringBuilder stringBuilder =new StringBuilder("");
+        for (int i = 0; i < n-word.length(); i++) {
+            stringBuilder.append(" ");
+        }
+        return stringBuilder.toString();
     }
 }

@@ -5,15 +5,15 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class Authentication {
-    private static File users = new File("\\src\\users.txt");
+    private static File users = new File("C:\\Users\\Salam\\Desktop\\Project_Phaze1\\src\\users.txt");
     private String userName;
     private String password;
     private static Scanner scanner = new Scanner(System.in);
 
     public void initUserPass(){
-        System.out.println(InputProcessor.ANSI_BLUE+"Enter your Username: ");
+        System.out.print(InputProcessor.ANSI_BLUE+"Enter your Username: ");
         this.userName = scanner.nextLine();
-        System.out.println(InputProcessor.ANSI_BLUE+"Enter your password: ");
+        System.out.print(InputProcessor.ANSI_BLUE+"Enter your password: ");
         this.password = scanner.nextLine();
     }
 
@@ -47,16 +47,16 @@ public class Authentication {
     }
 
     public Player signUp(){
-        Player player = null;
+        Player player;
         System.out.println(InputProcessor.ANSI_CYAN+"<<<<   Sign up panel   >>>>");
-        System.out.println(InputProcessor.ANSI_WHITE+"Enter your Username: ");
+        System.out.print(InputProcessor.ANSI_WHITE+"Enter your Username: ");
         String userNameInput = scanner.nextLine();
-        if (checkNewUsername(userNameInput)){
+        if (!checkNewUsername(userNameInput)){
             System.err.println("Sign up failed! this username already exist. use another username...");
             return null;
         }
         this.userName = userNameInput;
-        System.out.println(InputProcessor.ANSI_WHITE+"Enter your password: ");
+        System.out.print(InputProcessor.ANSI_WHITE+"Enter your password: ");
         this.password = scanner.nextLine();
         addUser();
         System.out.println(InputProcessor.ANSI_GREEN+"Sign up successfully. Welcome "+this.userName);
