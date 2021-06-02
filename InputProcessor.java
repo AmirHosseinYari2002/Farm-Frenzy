@@ -48,13 +48,14 @@ public class InputProcessor {
         }
     }
     private void processPlanting(String[] split){
-        if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 1) {
+        int manageError = manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2]));
+        if (manageError == 1) {
             System.err.println("Invalid Input");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Wrong location for planting");
-        }else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 2) {
+        }else if (manageError == 2) {
             System.err.println("There is grass in these location !");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"There is grass in these location");
-        }else if (manager.planting(Integer.parseInt(split[1]),Integer.parseInt(split[2])) == 3) {
+        }else if (manageError == 3) {
             System.out.println(ANSI_CYAN + "Grass was planted");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Grass was planted");
         }
@@ -85,8 +86,8 @@ public class InputProcessor {
     private void processGoingForwardTime(String[] split){
         for (int i = 0; i < Integer.parseInt(split[1]); i++) {
             updateGame();
+            showInformation();
         }
-        showInformation();
         FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Time go forward");
     }
     private void processLoadingProducts(String[] split){
@@ -161,6 +162,7 @@ public class InputProcessor {
         }
     }
     private void updateGame(){
+        manager.level.time.n++;
         manager.move();
         manager.eatGrass();
         manager.reduceLife();
@@ -176,7 +178,7 @@ public class InputProcessor {
         if (task.equals("coins")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"coins reach the desired amount");
-        }else if (task != null){
+        }else if (task != "null"){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your "+task+" reach the desired amount.");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+task+" reach the desired amount.");
         }
@@ -203,40 +205,42 @@ public class InputProcessor {
         }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
         System.out.println(ANSI_YELLOW+"Tasks : \n");
         for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
-            System.out.println(entry.getKey()+" : "+entry.getValue()+"/"+manager.level.basicTasks.get(entry.getKey()));
+            System.out.println(entry.getKey()+" : "+(entry.getValue()-manager.level.basicTasks.get(entry.getKey()))+"/"+manager.level.tasks.get(entry.getKey()));
         }
         FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Show information of map");
     }
 
     public void run(){
-        String input = scanner.nextLine();
-        if (input.matches("^(?i)buy\\s+(\\w+)\\s*$")){
-            processBuyAnimal(input.split("\\s+"));
-        }else if (input.matches("^(?i)pickup\\s+(\\d\\s+\\d)\\s*$")){
-            processPickupProduct(input.split("\\s+"));
-        }else if (input.matches("^(?i)well\\s*$")){
-            processFillWaterBucket();
-        }else if (input.matches("^(?i)plant\\s+(\\d\\s+\\d)\\s*$")){
-            processPlanting(input.split("\\s+"));
-        }else if (input.matches("^(?i)work\\s+(\\w+)\\s*$")){
-            processStartingWorkshop(input.split("\\s+"));
-        }else if (input.matches("^(?i)cage\\s+(\\d\\s+\\d)\\s*$")){
-            processCage(input.split("\\s+"));
-        }else if (input.matches("^(?i)turn\\s+(\\d+)\\s*$")){
-            processGoingForwardTime(input.split("\\s+"));
-        }else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s+(\\d+)\\s*$")){
-            processLoadingProducts(input.split("\\s+"));
-        }else if (input.matches("^(?i)(truck\\s+unload)\\s+(\\w+)\\s*$")){
-            processUnloadingProduct(input.split("\\s+"));
-        }else if (input.matches("^(?i)(truck\\s+go)\\s*$")){
-            processStartTrip();
-        }else if (input.matches("^(?i)(Build)\\s+(\\w+)\\s*$")){
-            processBuildWorkshop(input.split("\\s+"));
-        }else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")){
-            processUpgradeWorkshop(input.split("\\s+"));
-        }else if (input.matches("(?i)(inquiry)")){
-            showInformation();
-        }else System.err.println("Invalid Input !");
+        while (!manager.isLevelCompleted()) {
+            String input = scanner.nextLine();
+            if (input.matches("^(?i)buy\\s+(\\w+)\\s*$")) {
+                processBuyAnimal(input.split("\\s+"));
+            } else if (input.matches("^(?i)pickup\\s+(\\d\\s+\\d)\\s*$")) {
+                processPickupProduct(input.split("\\s+"));
+            } else if (input.matches("^(?i)well\\s*$")) {
+                processFillWaterBucket();
+            } else if (input.matches("^(?i)plant\\s+(\\d\\s+\\d)\\s*$")) {
+                processPlanting(input.split("\\s+"));
+            } else if (input.matches("^(?i)work\\s+(\\w+)\\s*$")) {
+                processStartingWorkshop(input.split("\\s+"));
+            } else if (input.matches("^(?i)cage\\s+(\\d\\s+\\d)\\s*$")) {
+                processCage(input.split("\\s+"));
+            } else if (input.matches("^(?i)turn\\s+(\\d+)\\s*$")) {
+                processGoingForwardTime(input.split("\\s+"));
+            } else if (input.matches("^(?i)(truck\\s+load)\\s+(\\w+)\\s+(\\d+)\\s*$")) {
+                processLoadingProducts(input.split("\\s+"));
+            } else if (input.matches("^(?i)(truck\\s+unload)\\s+(\\w+)\\s*$")) {
+                processUnloadingProduct(input.split("\\s+"));
+            } else if (input.matches("^(?i)(truck\\s+go)\\s*$")) {
+                processStartTrip();
+            } else if (input.matches("^(?i)(Build)\\s+(\\w+)\\s*$")) {
+                processBuildWorkshop(input.split("\\s+"));
+            } else if (input.matches("^(?i)(Upgrade\\s+Workshop)\\s+(\\w+)\\s*$")) {
+                processUpgradeWorkshop(input.split("\\s+"));
+            } else if (input.matches("(?i)(inquiry)")) {
+                showInformation();
+            } else System.err.println("Invalid Input !");
+        }
     }
 
     public static final String ANSI_GREEN = "\u001B[32m";

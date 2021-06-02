@@ -73,44 +73,74 @@ public class Manager {
     }
     public void move(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
-            if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() != domesticAnimal.X  &&  shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() != domesticAnimal.Y) {
-                if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
-                    domesticAnimal.X++;
-                } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() < domesticAnimal.X) {
-                    domesticAnimal.X--;
-                } else {
-                    if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
-                        domesticAnimal.Y++;
-                    } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
+            if (grassesList.size() > 0) {
+                if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() != domesticAnimal.X && shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() != domesticAnimal.Y) {
+                    if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
+                        domesticAnimal.X++;
+                    } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() < domesticAnimal.X) {
                         domesticAnimal.X--;
+                    } else {
+                        if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
+                            domesticAnimal.Y++;
+                        } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
+                            domesticAnimal.X--;
+                        }
                     }
+                }
+            }else {
+                int a = 1;
+                if (random.nextInt(2) == 0){
+                    if (domesticAnimal.X == 6){
+                        a = -a;
+                    }
+                    domesticAnimal.X += a;
+                }else {
+                    if (domesticAnimal.Y == 6){
+                        a = -a;
+                    }
+                    domesticAnimal.Y += a;
                 }
             }
         }
         for (Cat cat : catsList) {
-            if (shortestDistanceToCollectProduct(cat.X,cat.Y).getX() != cat.X  &&  shortestDistanceToCollectProduct(cat.X,cat.Y).getY() != cat.Y) {
-                if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() > cat.X) {
-                    cat.X++;
-                } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() < cat.X) {
-                    cat.X--;
-                } else {
-                    if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() > cat.Y) {
-                        cat.Y++;
-                    } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() < cat.Y) {
-                        cat.Y--;
+            if (productsList.size() > 0) {
+                if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() != cat.X && shortestDistanceToCollectProduct(cat.X, cat.Y).getY() != cat.Y) {
+                    if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() > cat.X) {
+                        cat.X++;
+                    } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() < cat.X) {
+                        cat.X--;
+                    } else {
+                        if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() > cat.Y) {
+                            cat.Y++;
+                        } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() < cat.Y) {
+                            cat.Y--;
+                        }
                     }
+                }
+            }else {
+                int a = 1;
+                if (random.nextInt(2) == 0){
+                    if (cat.X == 6){
+                        a = -a;
+                    }
+                    cat.X += a;
+                }else {
+                    if (cat.Y == 6){
+                        a = -a;
+                    }
+                    cat.Y += a;
                 }
             }
         }
         for (Hound hound : houndsList) {
             int a = 1;
             if (random.nextInt(2) == 0){
-                if (hound.X == 6  ||  hound.X == 1){
+                if (hound.X == 6){
                     a = -a;
                 }
                 hound.X += a;
             }else {
-                if (hound.Y == 6  ||  hound.Y == 1){
+                if (hound.Y == 6){
                     a = -a;
                 }
                 hound.Y += a;
@@ -119,12 +149,12 @@ public class Manager {
         for (WildAnimal wildAnimal : wildAnimalsList) {
             int a = 1;
             if (random.nextInt(2) == 0){
-                if (wildAnimal.X == 6  ||  wildAnimal.X == 1){
+                if (wildAnimal.X == 6){
                     a = -a;
                 }
                 wildAnimal.X += a;
             }else {
-                if (wildAnimal.Y == 6  ||  wildAnimal.Y == 1){
+                if (wildAnimal.Y == 6){
                     a = -a;
                 }
                 wildAnimal.Y += a;
@@ -228,24 +258,28 @@ public class Manager {
                 if (player.getCoins() >= 150) {
                     Cat cat = new Cat(random.nextInt(6)+1,random.nextInt(6)+1);
                     catsList.add(cat);
+                    return cat.name;
                 }else return "Coins";
             }
             case "Hen" -> {
                 if (player.getCoins() >= 100) {
                     Hen hen = new Hen(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(hen);
+                    return hen.name;
                 }else return "Coins";
             }
             case "Hound" -> {
                 if (player.getCoins() >= 100) {
                     Hound hound = new Hound(random.nextInt(6)+1,random.nextInt(6)+1);
                     houndsList.add(hound);
+                    return hound.name;
                 }else return "Coins";
             }
             case "Turkey" -> {
                 if (player.getCoins() >= 200) {
                     Turkey turkey = new Turkey(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(turkey);
+                    return turkey.name;
                 }else return "Coins";
             }
         }
@@ -263,7 +297,7 @@ public class Manager {
                 if (level.coins >= Bakery.getInstance().getCost()){
                     workShops.add(Bakery.getInstance());
                     level.coins -= Bakery.getInstance().getCost();
-                    stringBuilder.append("bakery").append(Bakery.getInstance().input).append(" ").append(Bakery.getInstance().output);
+                    stringBuilder.append("bakery").append(" ").append(Bakery.getInstance().input.getName()).append(" ").append(Bakery.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -272,7 +306,7 @@ public class Manager {
                 if (level.coins >= IceCreamSelling.getInstance().getCost()){
                     workShops.add(IceCreamSelling.getInstance());
                     level.coins -= IceCreamSelling.getInstance().getCost();
-                    stringBuilder.append("iceCreamSelling").append(IceCreamSelling.getInstance().input).append(" ").append(IceCreamSelling.getInstance().output);
+                    stringBuilder.append("iceCreamSelling").append(" ").append(IceCreamSelling.getInstance().input.getName()).append(" ").append(IceCreamSelling.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -281,7 +315,7 @@ public class Manager {
                 if (level.coins >= MilkPackaging.getInstance().getCost()){
                     workShops.add(MilkPackaging.getInstance());
                     level.coins -= MilkPackaging.getInstance().getCost();
-                    stringBuilder.append("milkPacking").append(MilkPackaging.getInstance().input).append(" ").append(MilkPackaging.getInstance().output);
+                    stringBuilder.append("milkPacking").append(" ").append(MilkPackaging.getInstance().input.getName()).append(" ").append(MilkPackaging.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -290,7 +324,7 @@ public class Manager {
                 if (level.coins >= Mill.getInstance().getCost()){
                     workShops.add(Mill.getInstance());
                     level.coins -= Mill.getInstance().getCost();
-                    stringBuilder.append("mill").append(Mill.getInstance().input).append(" ").append(Mill.getInstance().output);
+                    stringBuilder.append("mill").append(" ").append(Mill.getInstance().input.getName()).append(" ").append(Mill.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -299,7 +333,7 @@ public class Manager {
                 if (level.coins >= SewingWS.getInstance().getCost()){
                     workShops.add(SewingWS.getInstance());
                     level.coins -= SewingWS.getInstance().getCost();
-                    stringBuilder.append("sewing").append(SewingWS.getInstance().input).append(" ").append(SewingWS.getInstance().output);
+                    stringBuilder.append("sewing").append(" ").append(SewingWS.getInstance().input.getName()).append(" ").append(SewingWS.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -308,7 +342,7 @@ public class Manager {
                 if (level.coins >= WeavingWS.getInstance().getCost()){
                     workShops.add(WeavingWS.getInstance());
                     level.coins -= WeavingWS.getInstance().getCost();
-                    stringBuilder.append("weaving").append(WeavingWS.getInstance().input).append(" ").append(WeavingWS.getInstance().output);
+                    stringBuilder.append("weaving").append(" ").append(WeavingWS.getInstance().input.getName()).append(" ").append(WeavingWS.getInstance().output.getName());
                 }
                 else
                     return "coins";
@@ -499,7 +533,7 @@ public class Manager {
                 level.tasks.replace(entry.getKey().getName(),productNum);
             }
         }
-        return null;
+        return "null";
     }
     public boolean isLevelCompleted(){
         if (level.tasks.isEmpty()){
