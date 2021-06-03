@@ -6,7 +6,7 @@ import java.util.Date;
 import java.util.Scanner;
 
 public class Authentication {
-    private static File users = new File("C:\\Users\\Salam\\Desktop\\Project_Phaze1\\src\\users.txt");
+    private static File users = new File("src\\users.txt");
     private String userName;
     private String password;
     private static Scanner scanner = new Scanner(System.in);
@@ -22,15 +22,16 @@ public class Authentication {
         Player player = null;
         System.out.println(InputProcessor.ANSI_PURPLE+"<<<<    Sign in panel   >>>>");
         initUserPass();
-        if (checkUserPass()){
-            System.out.println(InputProcessor.ANSI_GREEN+"Signed In successfully. Welcome "+this.userName);
-            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Signed In successfully");
-            player = initPlayer(this.userName);
-        }
-        else {
+        while (!checkUserPass()){
             System.err.println("ERROR! Sign in failed because of wrong username and/or password.");
+            System.err.println("Try again...");
+            System.out.println();
+            initUserPass();
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Sign in failed");
         }
+        System.out.println(InputProcessor.ANSI_GREEN+"Signed In successfully. Welcome "+this.userName);
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Signed In successfully");
+        player = initPlayer(this.userName);
         return player;
     }
 
