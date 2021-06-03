@@ -4,8 +4,8 @@ public class Bakery extends WorkShop{
         this.level = 1;
         this.cost = 250;
         this.productionTime = new TIME(5);
-        this.input = new Product("flour",40,2,new TIME(5),Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
-        this.output = new Product("bread",80,4,new TIME(6),Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+        this.input = new Product("flour",40,2,5,this.startTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+        this.output = new Product("bread",80,4,6,this.startTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
         this.name = "bakery";
     }
 

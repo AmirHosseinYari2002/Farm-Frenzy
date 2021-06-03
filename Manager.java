@@ -25,6 +25,8 @@ public class Manager {
     private ArrayList<WorkShop> workShops = new ArrayList<>();
     private HashMap<Product,Integer> loadedProducts = new HashMap<>();
     private HashMap<Product,Integer> unLoadedProduct = new HashMap<>();
+    private ArrayList<Animal> animalsCalculatedInTask = new ArrayList<>();
+    private ArrayList<Product> productsCalculatedInTask = new ArrayList<>();
 
     public ArrayList<DomesticAnimal> getDomesticAnimalsList() {
         return domesticAnimalsList;
@@ -40,6 +42,9 @@ public class Manager {
     }
     public ArrayList<Product> getProductsList() {
         return productsList;
+    }
+    public HashMap<Product, Integer> getProductsInBarn() {
+        return productsInBarn;
     }
 
     public Manager(Levels level, Player player) {
@@ -83,7 +88,7 @@ public class Manager {
                         if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
                             domesticAnimal.Y++;
                         } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
-                            domesticAnimal.X--;
+                            domesticAnimal.Y--;
                         }
                     }
                 }
@@ -251,6 +256,7 @@ public class Manager {
                 if (player.getCoins() >= 400) {
                     Buffalo buffalo = new Buffalo(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(buffalo);
+                    buffalo.startProduceProduct = new TIME(level.time.n);
                     return buffalo.name;
                 }else return "Coins";
             }
@@ -265,6 +271,7 @@ public class Manager {
                 if (player.getCoins() >= 100) {
                     Hen hen = new Hen(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(hen);
+                    hen.startProduceProduct = new TIME(level.time.n);
                     return hen.name;
                 }else return "Coins";
             }
@@ -279,6 +286,7 @@ public class Manager {
                 if (player.getCoins() >= 200) {
                     Turkey turkey = new Turkey(random.nextInt(6)+1,random.nextInt(6)+1);
                     domesticAnimalsList.add(turkey);
+                    turkey.startProduceProduct = new TIME(level.time.n);
                     return turkey.name;
                 }else return "Coins";
             }
@@ -370,9 +378,7 @@ public class Manager {
             if (product.getX() == x  &&  product.getY() == y){
                 if (Barn.getInstance().getFreeSpace() >= product.getBarnSpace()) {
                     removeProductList.add(product);
-                    if (productsInBarn.containsKey(product))
-                        productsInBarn.replace(product,productsInBarn.get(product)+1);
-                    else productsInBarn.put(product,1);
+                    productsInBarn.put(product,1);
                 }else return "barnSpace";
             }
         }
@@ -398,9 +404,12 @@ public class Manager {
                 if (grass.getX() == x  &&  grass.getY() == y)
                     return 2;
             }
-            Grass grass = new Grass(x,y);
-            grassesList.add(grass);
-            return 3;
+            if (Well.getInstance().getRemainingWater() > 0) {
+                Grass grass = new Grass(x, y);
+                grassesList.add(grass);
+                Well.getInstance().setRemainingWater(Well.getInstance().getRemainingWater()-1);
+                return 3;
+            }else return 4;
         }else return 1;
     }
     public String startingWorkshop(String name){
@@ -425,7 +434,8 @@ public class Manager {
                 productsList.add(product);
                 workShop.setStartTime(new TIME(0));
                 return workShop.name;
-            }
+            }else if (workShop.startTime == null)
+                return "does not work";
         }
         return "notReady";
     }
@@ -457,7 +467,7 @@ public class Manager {
             for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()) {
                 if (entry.getKey().getName().equals(name)) {
                     if (entry.getValue() >= amount) {
-                        if (amount * entry.getKey().getBarnSpace() >= Car.getInstance().getEmptySpace()) {
+                        if (amount * entry.getKey().getBarnSpace() <= Car.getInstance().getEmptySpace()) {
                             productsInBarn.replace(entry.getKey(), entry.getValue() - amount);
                             Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * entry.getKey().getBarnSpace());
                             Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * entry.getKey().getBarnSpace());
@@ -499,7 +509,7 @@ public class Manager {
         return "Invalid";
     }
     public void startTrip(){
-        Car.getInstance().setStartTrip(level.time);
+        Car.getInstance().setStartTrip(new TIME(level.time.n));
     }
     public int checkTrip(){
         if (!Car.getInstance().IsCarBack(level.time))
@@ -514,23 +524,25 @@ public class Manager {
             }
         }
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
-            if (level.tasks.containsKey(domesticAnimal.name)){
+            if (level.tasks.containsKey(domesticAnimal.name)  &&  !animalsCalculatedInTask.contains(domesticAnimal)) {
+                animalsCalculatedInTask.add(domesticAnimal);
                 int animalNum = level.tasks.get(domesticAnimal.name) - 1;
                 if (animalNum == 0) {
                     level.tasks.remove(domesticAnimal.name);
                     return domesticAnimal.name;
                 }
-                level.tasks.replace(domesticAnimal.name,animalNum);
+                level.tasks.replace(domesticAnimal.name, animalNum);
             }
         }
-        for (Map.Entry<Product,Integer> entry : productsInBarn.entrySet()){
-            if (level.tasks.containsKey(entry.getKey().getName())){
-                int productNum = level.tasks.get(entry.getKey().getName())-1;
+        for (Map.Entry<Product,Integer> entry : productsInBarn.entrySet()) {
+            if (level.tasks.containsKey(entry.getKey().getName())  &&  !productsCalculatedInTask.contains(entry.getKey())) {
+                productsCalculatedInTask.add(entry.getKey());
+                int productNum = level.tasks.get(entry.getKey().getName()) - 1;
                 if (productNum == 0) {
                     level.tasks.remove(entry.getKey().getName());
                     return entry.getKey().getName();
                 }
-                level.tasks.replace(entry.getKey().getName(),productNum);
+                level.tasks.replace(entry.getKey().getName(), productNum);
             }
         }
         return "null";
@@ -550,6 +562,48 @@ public class Manager {
             return true;
         }
         return false;
+    }
+    public void isAnimalManufacturedProduct(){
+        for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
+            System.out.println(level.time.n+" "+domesticAnimal.startProduceProduct.n);
+            if (level.time.n-domesticAnimal.startProduceProduct.n == domesticAnimal.timeRequiredToProduct){
+                Product product = domesticAnimal.outProduct(level.time);
+                System.out.println("aa");
+                domesticAnimal.startProduceProduct = new TIME(level.time.n);;
+                productsList.add(product);
+            }
+        }
+    }
+    public void disappearProduct(){
+        for (Product product : productsList) {
+            if (TIME.diff(product.getStartDisappearTime(),level.time) == product.getDisappearTime()){
+                removeProductList.add(product);
+            }
+        }
+        for (Product product : removeProductList) {
+            if (productsList.contains(product))
+                productsList.remove(product);
+        }
+    }
+    public void appearWildAnimal(){
+        for (Map.Entry<String,Integer> entry : level.wildAnimals.entrySet()){
+            if (entry.getValue() == level.time.n){
+                switch (entry.getKey()){
+                    case "Tiger" ->{
+                        Tiger tiger = new Tiger(random.nextInt(6)+1,random.nextInt(6)+1);
+                        wildAnimalsList.add(tiger);
+                    }
+                    case "Lion" ->{
+                        Lion lion = new Lion(random.nextInt(6)+1,random.nextInt(6)+1);
+                        wildAnimalsList.add(lion);
+                    }
+                    case "Bear" ->{
+                        Bear bear = new Bear(random.nextInt(6)+1,random.nextInt(6)+1);
+                        wildAnimalsList.add(bear);
+                    }
+                }
+            }
+        }
     }
     public String space(int n,String word){
         StringBuilder stringBuilder =new StringBuilder("");

@@ -58,6 +58,8 @@ public class InputProcessor {
         }else if (manageError == 3) {
             System.out.println(ANSI_CYAN + "Grass was planted");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Grass was planted");
+        }else if (manageError == 4){
+            System.err.println("Bucket does not have a  water!");
         }
     }
     private void processStartingWorkshop(String[] split){
@@ -88,7 +90,7 @@ public class InputProcessor {
             updateGame();
             showInformation();
         }
-        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Time go forward");
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Time go forward"+split[1]+" unit");
     }
     private void processLoadingProducts(String[] split){
         String manageError = manager.loadingProducts(split[2],Integer.parseInt(split[3]));
@@ -174,11 +176,14 @@ public class InputProcessor {
         manager.collectProducts();
         manager.destroyDomesticAnimalAndProduct();
         manager.destroyWildAnimal();
+        manager.isAnimalManufacturedProduct();
+        manager.disappearProduct();
+        manager.appearWildAnimal();
         String task = manager.checkTasks();
         if (task.equals("coins")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"coins reach the desired amount");
-        }else if (task != "null"){
+        }else if (!task.equals("null")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your "+task+" reach the desired amount.");
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+task+" reach the desired amount.");
         }
@@ -199,13 +204,17 @@ public class InputProcessor {
             System.out.println("|"+hound.name+manager.space(10,hound.name)+"|"+hound.X+manager.space(5,"1")+"|"+hound.Y+manager.space(5,"1"));
         }
         System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-        System.out.println(ANSI_PURPLE+"               Products\n"+"+++++++++++++++++++++++++++++++++++++++++");
-        for (Product product : manager.getProductsList()) {
+        System.out.println(ANSI_BLUE+"               Products In Map\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        for (Product product : manager.getProductsList()){
             System.out.println("|"+product.getName()+manager.space(10,product.getName())+"|"+product.getX()+manager.space(5,"1")+"|"+product.getY()+manager.space(5,"1"));
         }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
-        System.out.println(ANSI_YELLOW+"Tasks : \n");
+        System.out.println(ANSI_PURPLE+"               Products In Barn\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        for (Map.Entry<Product,Integer> entry : manager.getProductsInBarn().entrySet()) {
+            System.out.println("|"+entry.getKey().getName()+manager.space(10,entry.getKey().getName())+"|"+entry.getKey().getX()+manager.space(5,"1")+"|"+entry.getKey().getY()+manager.space(5,"1"));
+        }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(ANSI_YELLOW+"Tasks -> ");
         for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
-            System.out.println(entry.getKey()+" : "+(entry.getValue()-manager.level.basicTasks.get(entry.getKey()))+"/"+manager.level.tasks.get(entry.getKey()));
+            System.out.println(entry.getKey()+" : "+(manager.level.basicTasks.get(entry.getKey())-entry.getValue())+"/"+manager.level.basicTasks.get(entry.getKey()));
         }
         FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"Show information of map");
     }

@@ -1,0 +1,402 @@
+File creation time : Wed Jun 02 14:31:31 IRDT 2021
+Time of the last change in the file : Wed Jun 02 14:31:31 IRDT 2021
+---------------------------------------------------------------
+Wed Jun 02 17:30:38 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:30:39 IRDT 2021 [INFO] start level
+Wed Jun 02 17:30:56 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:31:01 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:31:04 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:31:04 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:31:04 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:31:44 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:31:46 IRDT 2021 [INFO] start level
+Wed Jun 02 17:31:51 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:31:51 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:31:51 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:31:52 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:31:52 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:31:52 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:35:03 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:35:04 IRDT 2021 [INFO] start level
+Wed Jun 02 17:35:07 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:35:07 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:35:07 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:35:19 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:35:19 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:35:19 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:36:09 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:36:16 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:36:23 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:36:31 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:36:31 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:38:54 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:42:01 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:42:02 IRDT 2021 [INFO] start level
+Wed Jun 02 17:42:04 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:42:05 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:42:09 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:42:09 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:42:09 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:47:02 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:47:04 IRDT 2021 [INFO] start level
+Wed Jun 02 17:47:12 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:47:17 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:47:17 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:47:30 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:47:37 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:47:37 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:48:11 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:48:14 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:48:14 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:48:21 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:48:26 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:48:26 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:48:34 IRDT 2021 [INFO] egg reach the desired amount.
+Wed Jun 02 17:48:34 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:48:34 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:49:55 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:49:57 IRDT 2021 [INFO] start level
+Wed Jun 02 17:50:00 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:50:01 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:50:04 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:50:04 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:50:04 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:50:12 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:50:17 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:50:23 IRDT 2021 [INFO] product picked up
+Wed Jun 02 17:50:30 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:50:30 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:51:33 IRDT 2021 [INFO] egg reach the desired amount.
+Wed Jun 02 17:51:33 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:51:33 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 17:59:49 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 17:59:50 IRDT 2021 [INFO] start level
+Wed Jun 02 17:59:53 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:59:54 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 17:59:58 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 17:59:58 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:00:08 IRDT 2021 [INFO] product picked up
+Wed Jun 02 18:00:25 IRDT 2021 [INFO] product picked up
+Wed Jun 02 18:00:28 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:28 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] egg reach the desired amount.
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:00:41 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:01:18 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:01:24 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:01:24 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:01:24 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:01:24 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:01:24 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:02:06 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:02:13 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:02:13 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:05:53 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 18:05:54 IRDT 2021 [INFO] start level
+Wed Jun 02 18:05:57 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:05:57 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:06:02 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:06:02 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:06:02 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:06:02 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:06:02 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:07:31 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 18:07:34 IRDT 2021 [INFO] start level
+Wed Jun 02 18:07:37 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:07:37 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:07:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:07:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:07:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:07:41 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:07:41 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:09:11 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 18:09:13 IRDT 2021 [INFO] start level
+Wed Jun 02 18:09:15 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:09:15 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:09:18 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:09:18 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:09:18 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:09:18 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:09:18 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:10:30 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 18:10:31 IRDT 2021 [INFO] start level
+Wed Jun 02 18:10:34 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:10:35 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:10:38 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:10:38 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:10:38 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:12:11 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Wed Jun 02 18:12:16 IRDT 2021 [INFO] start level
+Wed Jun 02 18:12:20 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:12:20 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:12:20 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:12:20 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:12:20 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:14:23 IRDT 2021 [INFO] Sign up successfully
+(user : er )
+Wed Jun 02 18:14:24 IRDT 2021 [INFO] start level
+Wed Jun 02 18:14:31 IRDT 2021 [INFO] purchase animal was successful
+Wed Jun 02 18:14:36 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:14:36 IRDT 2021 [INFO] Time go forward
+Wed Jun 02 18:14:56 IRDT 2021 [INFO] Show information of map
+Wed Jun 02 18:14:56 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:40:28 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:40:29 IRDT 2021 [INFO] start level
+Thu Jun 03 07:40:32 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:40:34 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:40:37 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:40:37 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:40:50 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:40:50 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:40:50 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:42:21 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:42:22 IRDT 2021 [INFO] start level
+Thu Jun 03 07:42:28 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:42:28 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:42:32 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:42:33 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:42:36 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:42:36 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:48:43 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:48:44 IRDT 2021 [INFO] start level
+Thu Jun 03 07:48:47 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:48:47 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:48:51 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:48:51 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:48:58 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:48:58 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:49:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:49:07 IRDT 2021 [INFO] Time go forward
+Thu Jun 03 07:56:07 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:56:09 IRDT 2021 [INFO] start level
+Thu Jun 03 07:56:12 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:56:12 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:56:16 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:56:16 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 07:56:24 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:56:24 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 07:56:52 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:56:54 IRDT 2021 [INFO] start level
+Thu Jun 03 07:56:58 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:57:00 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 07:57:03 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 07:57:03 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 07:58:31 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 07:58:33 IRDT 2021 [INFO] start level
+Thu Jun 03 08:00:41 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:00:43 IRDT 2021 [INFO] start level
+Thu Jun 03 08:00:45 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:00:46 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:00:50 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:00:50 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:00:56 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:00:56 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:01:02 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:01:02 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:01:12 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:01:12 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:01:57 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:01:59 IRDT 2021 [INFO] start level
+Thu Jun 03 08:02:02 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:02:02 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:02:06 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:02:06 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:02:10 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:02:10 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:02:15 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:02:15 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:02:15 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:02:20 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:02:20 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:03:22 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:03:24 IRDT 2021 [INFO] start level
+Thu Jun 03 08:03:26 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:03:26 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:03:29 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:03:29 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:03:29 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:03:29 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:03:29 IRDT 2021 [INFO] Time go forward4 unit
+Thu Jun 03 08:03:36 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:03:42 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:03:50 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:03:54 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:03:54 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:04:04 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:04:04 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:04:11 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:04:11 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:04:45 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:04:45 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:05:47 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:05:49 IRDT 2021 [INFO] start level
+Thu Jun 03 08:05:51 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:05:52 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:05:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:05:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:05:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:05:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:05:55 IRDT 2021 [INFO] Time go forward4 unit
+Thu Jun 03 08:06:02 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:06:09 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:06:16 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:06:20 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:06:25 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:06:25 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:06:25 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:06:47 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:06:47 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:06:47 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:08:03 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:08:04 IRDT 2021 [INFO] start level
+Thu Jun 03 08:08:07 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:08:07 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:08:10 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:10 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:10 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:10 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:10 IRDT 2021 [INFO] Time go forward4 unit
+Thu Jun 03 08:08:26 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:26 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:08:26 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:08:42 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:08:47 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:08:53 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:09:02 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:09:08 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:09:11 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:09:11 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:13:04 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:13:04 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:13:40 IRDT 2021 [ERROR] wrong  location was selected for pickup product
+Thu Jun 03 08:13:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:13:55 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:13:55 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:14:05 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:14:08 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:14:08 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:14:08 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:14:54 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:14:54 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:14:54 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:16:20 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:16:21 IRDT 2021 [INFO] start level
+Thu Jun 03 08:16:25 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:16:26 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:16:31 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:16:34 IRDT 2021 [INFO] Time go forward6 unit
+Thu Jun 03 08:16:43 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:16:54 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:17:06 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:17:15 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:17:21 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:17:31 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:17:31 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:18:18 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:18:18 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:43:21 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:43:23 IRDT 2021 [INFO] start level
+Thu Jun 03 08:43:28 IRDT 2021 [INFO] The car started transporting
+Thu Jun 03 08:43:43 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:43:43 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 03 08:43:48 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:43:51 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:43:51 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:43:51 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:44:00 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:44:25 IRDT 2021 [ERROR] The car is traveling
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:44:41 IRDT 2021 [INFO] Time go forward7 unit
+Thu Jun 03 08:44:56 IRDT 2021 [ERROR] not enough space to load in car
+Thu Jun 03 08:46:45 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:46:47 IRDT 2021 [INFO] start level
+Thu Jun 03 08:46:52 IRDT 2021 [INFO] The car started transporting
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:46:57 IRDT 2021 [INFO] Time go forward11 unit
+Thu Jun 03 08:47:02 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:47:06 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:47:06 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:47:06 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 03 08:47:25 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:47:38 IRDT 2021 [ERROR] The car is traveling
+Thu Jun 03 08:53:29 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 03 08:53:31 IRDT 2021 [INFO] start level
+Thu Jun 03 08:53:41 IRDT 2021 [INFO] purchase animal was successful
+Thu Jun 03 08:53:48 IRDT 2021 [INFO] The car started transporting
+Thu Jun 03 08:53:53 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:53:53 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:53:53 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:53:53 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:53:53 IRDT 2021 [INFO] Time go forward4 unit
+Thu Jun 03 08:54:01 IRDT 2021 [INFO] product picked up
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
+Thu Jun 03 08:54:07 IRDT 2021 [INFO] Time go forward10 unit
+Thu Jun 03 08:54:18 IRDT 2021 [ERROR] not enough product in Barn
+Thu Jun 03 08:54:21 IRDT 2021 [INFO] Loaded successfully

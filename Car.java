@@ -27,7 +27,7 @@ public class Car {
     }
 
     protected boolean IsCarBack(TIME time){
-        return TIME.diff(time, this.startTrip) == transferTime;
+        return TIME.diff(time, this.startTrip) >= transferTime;
     }
 
     //Singleton Design

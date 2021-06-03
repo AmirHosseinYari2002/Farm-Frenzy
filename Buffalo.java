@@ -10,4 +10,8 @@ public class Buffalo extends DomesticAnimal{
         this.Y = y;
     }
 
+    @Override
+    Product outProduct(TIME startDisappearTime) {
+        return new Product(this.ManufacturedProduct,25,1,4,startDisappearTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+    }
 }

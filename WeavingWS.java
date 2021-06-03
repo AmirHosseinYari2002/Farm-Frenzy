@@ -4,8 +4,8 @@ public class WeavingWS extends WorkShop{
         this.level = 1;
         this.cost = 250;
         this.productionTime = new TIME(5);
-        this.input = new Product("feather",20,1,new TIME(4),Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
-        this.output = new Product("cloth",50,2,new TIME(5),Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+        this.input = new Product("feather",20,1,4,this.startTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+        this.output = new Product("cloth",50,2,5,this.startTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
         this.name = "weaving";
     }
 

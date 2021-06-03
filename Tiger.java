@@ -10,5 +10,4 @@ public class Tiger extends WildAnimal{
         this.OccupiedSpace = 15;
         this.name = "Tiger";
     }
-
 }

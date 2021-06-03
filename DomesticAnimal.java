@@ -5,4 +5,7 @@ public abstract class DomesticAnimal extends Animal{
     protected int timeRequiredToProduct;
     protected int remainingLife;
     protected int OccupiedSpace;
+    protected TIME startProduceProduct;
+
+    abstract Product outProduct(TIME startDisappearTime);
 }

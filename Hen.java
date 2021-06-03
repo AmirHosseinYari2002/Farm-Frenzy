@@ -9,4 +9,9 @@ public class Hen extends DomesticAnimal{
         this.X = x;
         this.Y = y;
     }
+
+    @Override
+    Product outProduct(TIME startDisappearTime) {
+        return new Product(this.ManufacturedProduct,15,1,4,startDisappearTime,Manager.random.nextInt(6)+1,Manager.random.nextInt(6)+1);
+    }
 }

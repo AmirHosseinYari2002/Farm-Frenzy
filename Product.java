@@ -2,7 +2,8 @@ public class Product {
     private String name;
     private int sellingPrice;
     private int barnSpace;
-    private TIME disappearTime;
+    private int disappearTime;
+    private TIME startDisappearTime;
     private int X;
     private int Y;
 
@@ -24,14 +25,24 @@ public class Product {
     public void setY(int y) {
         Y = y;
     }
+    public int getSellingPrice() {
+        return sellingPrice;
+    }
+    public int getDisappearTime() {
+        return disappearTime;
+    }
+    public TIME getStartDisappearTime() {
+        return startDisappearTime;
+    }
 
-    public Product(String name, int sellingPrice, int barnSpace, TIME disappearTime, int X, int Y) {
+    public Product(String name, int sellingPrice, int barnSpace, int disappearTime, TIME startDisappearTime, int X, int Y) {
         this.name = name;
         this.sellingPrice = sellingPrice;
         this.barnSpace = barnSpace;
         this.disappearTime = disappearTime;
         this.X = X;
         this.Y = Y;
+        this.startDisappearTime = startDisappearTime;
     }
 
     public Product() {
