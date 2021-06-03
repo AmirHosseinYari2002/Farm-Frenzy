@@ -1,4 +1,4 @@
-10
+9
 LevelCoins,300,300,400,400,500,500,600,700,700,800
 WildAnimalLevel1,Lion-5,Lion-15
 WildAnimalLevel2,Lion-3,Bear-13,Lion-23
@@ -11,15 +11,14 @@ WildAnimalLevel8,Lion-5,Bear-30,Lion-30,Tiger-30
 WildAnimalLevel9,Bear-5,Bear-5,Lion-20,Tiger-20,Tiger-50,Bear-50
 WildAnimalLevel10,Lion-3,Bear-10,Lion-13,Tiger-20,Tiger-40,Tiger-40,Lion-40,Bear-40
 TasksLevel1,egg-5
-TasksLevel2,turkey-5,feather-10
-TasksLevel3,hen-5,flour-5
-TasksLevel4,buffalo-2,milk-5
+TasksLevel2,Turkey-5,feather-10
+TasksLevel3,Hen-5,flour-5
+TasksLevel4,Buffalo-2,milk-5
 TasksLevel5,cloth-5,coins-1000
-TasksLevel6,pocketMilk-5,bread-5,hen-10
+TasksLevel6,pocketMilk-5,bread-5,Hen-10
 TasksLevel7,shirt-2,milk-5,bread-5
 TasksLevel8,iceCream-5
-TasksLevel9,hen-5,turkey-3,buffalo-2,bread-2,pocketMilk-4
-TasksLevel10,iceCream-3,shirt-4,bread-5,coins-3000
+TasksLevel9,iceCream-3,shirt-4,bread-5,coins-3000
 LevelFinishTime1,50,40,30
 LevelFinishTime2,60,50,40
 LevelFinishTime3,70,60,50
