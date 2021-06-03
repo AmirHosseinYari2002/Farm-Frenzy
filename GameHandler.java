@@ -1,5 +1,4 @@
 import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
@@ -7,15 +6,15 @@ import java.util.concurrent.TimeUnit;
 
 public class GameHandler {
     static private Player player;
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
     public static Authentication authenticator = new Authentication();
-    private static File logInstance = new File("C:\\Users\\Salam\\Desktop\\Project_Phaze1\\src\\log.txt");
+    private static File logInstance = new File("src\\log.txt");
     public static File getInstance(){
-            if (logInstance.length() == 0){
-                FileManager.addToFile(logInstance,"File creation time : "+new Date().toString());
-                FileManager.addToFile(logInstance,"Time of the last change in the file : "+new Date());
-                FileManager.addToFile(logInstance,"---------------------------------------------------------------");
-            }
+        if (logInstance.length() == 0){
+            FileManager.addToFile(logInstance,"File creation time : "+new Date().toString());
+            FileManager.addToFile(logInstance,"Time of the last change in the file : "+new Date());
+            FileManager.addToFile(logInstance,"---------------------------------------------------------------");
+        }
         return logInstance;
     }
     public void startGame(){
@@ -38,38 +37,26 @@ public class GameHandler {
             }
             FileManager.addToFile(GameHandler.getInstance(),"(user : "+player.getName()+" )");
         }
-        while (!scanner.nextLine().equals("exit")){
-            System.out.println("Player: "+InputProcessor.ANSI_CYAN+player.getName());
-            System.out.println(InputProcessor.ANSI_YELLOW+"If you want to exit Enter 'exit'");
-            System.out.println(InputProcessor.ANSI_PURPLE+"Levels: ");
-            for (int i = 1; i < player.getLevel(); i++) {
-                System.out.println("level "+i);
-            }
-            System.out.print(InputProcessor.ANSI_WHITE+"Enter number of level you want to play:");
-            int level = scanner.nextInt();
-            while (level < 1 || level > player.getLevel()){
-                System.err.println("Sorry! you can't play this level...");
-                System.out.println();
-                FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Select unopened level");
-                System.out.print(InputProcessor.ANSI_WHITE+"Enter level number you want to play:");
-                level = scanner.nextInt();
-            }
-            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"start level");
-            player.setCoins(player.getCoins()+startLevel(level));
-            player.setLevel(player.getLevel()+1);
-        }
-        saveGame();
-        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"save game");
-        System.out.println("        ***********************************************");
-        System.out.println("        ***   Thanks for choosing us, Good bye.     ***");
-        System.out.println("        ***   Created and Designed by :             ***");
-        System.out.println("        ***             Amir Hossein Yari           ***");
-        System.out.println("        ***       Mohammad Hossein Shafizadegan     ***");
-        System.out.println("        ***********************************************");
-        FileManager.replace(GameHandler.getInstance(),"Time of the last change in the file : ",("Time of the last change in the file : "+new Date()));
-    }
+        System.out.println(InputProcessor.ANSI_WHITE+"-----------------------------------------------");
+        startMenu();
 
-    public static int startLevel(int levelNum){
+    }
+    public static void startLevel(){
+        System.out.println("Player: "+InputProcessor.ANSI_CYAN+player.getName());
+        System.out.println(InputProcessor.ANSI_PURPLE+"Levels: ");
+        for (int i = 0; i < player.getLevel(); i++) {
+            System.out.println("level "+(i+1));
+        }
+        System.out.print(InputProcessor.ANSI_WHITE+"Enter number of level you want to play:");
+        int levelNum = scanner.nextInt();
+        while (levelNum < 1 || levelNum > player.getLevel()){
+            System.err.println("Sorry! you can't play this level...");
+            System.out.println();
+            FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Select unopened level");
+            System.out.print(InputProcessor.ANSI_WHITE+"Enter level number you want to play:");
+            levelNum = scanner.nextInt();
+        }
+        FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"start level");
         System.out.println(InputProcessor.ANSI_YELLOW+"Loading Level "+levelNum);
         try {
             TimeUnit.SECONDS.sleep(1);
@@ -94,12 +81,61 @@ public class GameHandler {
             case "bronze" -> level.bronzeGiftCoin;
             default -> 0;
         };
-        return levelPrize;
+        player.setCoins(player.getCoins()+levelPrize);
+        player.setLevel(player.getLevel()+1);
     }
-
     public static void saveGame(){
         FileManager.remove(authenticator.getUsers(), player.getName());
         String input = player.getName()+","+player.getPassword()+","+player.getLevel()+","+player.getCoins();
         FileManager.addToFile(authenticator.getUsers(),input);
+    }
+    public static void help(){
+        System.out.println(InputProcessor.ANSI_WHITE+"Game Commands:");
+        System.out.println(InputProcessor.ANSI_PURPLE+"BUY <animal_name> -> "+InputProcessor.ANSI_YELLOW+"buying domestic animals, cat and hound\n" +
+                InputProcessor.ANSI_PURPLE+"BUILD <workshop_name> -> "+InputProcessor.ANSI_YELLOW+"building a workshop \n" +
+                InputProcessor.ANSI_PURPLE+"PICKUP <x y> -> "+InputProcessor.ANSI_YELLOW+"picking up products on the ground\n" +
+                InputProcessor.ANSI_PURPLE+"WELL ->"+InputProcessor.ANSI_YELLOW+"Filling water bucket\n" +
+                InputProcessor.ANSI_PURPLE+"PLANT <x y> -> "+InputProcessor.ANSI_YELLOW+"planting grass on position x y\n" +
+                InputProcessor.ANSI_PURPLE+"WORK <workshop_name> -> "+InputProcessor.ANSI_YELLOW+"start working a workshop\n" +
+                InputProcessor.ANSI_PURPLE+"CAGE <x y> -> "+InputProcessor.ANSI_YELLOW+"trapping and putting wild animals in cage\n" +
+                InputProcessor.ANSI_PURPLE+"TURN <n> -> "+InputProcessor.ANSI_YELLOW+"going time forward for n time unit\n" +
+                InputProcessor.ANSI_PURPLE+"TRUCK LOAD <item_name> -> "+InputProcessor.ANSI_YELLOW+"Loading products to the truck\n" +
+                InputProcessor.ANSI_PURPLE+"TRUCK UNLOAD <item_name> -> "+InputProcessor.ANSI_YELLOW+"Unloading products from the truck\n" +
+                InputProcessor.ANSI_PURPLE+"TRUCK GO -> "+InputProcessor.ANSI_YELLOW+"The truck will start traveling.");
+    }
+    public static void startMenu(){
+        int answer = 0;
+        System.out.println(InputProcessor.ANSI_BLUE+"<<<<<<    Main Menu    >>>>>>>");
+        System.out.println(InputProcessor.ANSI_CYAN+"  1- Levels");
+        System.out.println("  2- Help");
+        System.out.println("  3- Log out");
+        System.out.println("  4- Exit");
+        System.out.print(InputProcessor.ANSI_GREEN+"Select your desired option: ");
+        answer = scanner.nextInt();
+        switch (answer) {
+            case 1 -> startLevel();
+            case 2 -> {
+                help();
+                System.out.println(InputProcessor.ANSI_WHITE + "Do you want to return? (1-yes  2-no)");
+                int response = scanner.nextInt();
+                while (response != 1)
+                    response = scanner.nextInt();
+                startMenu();
+            }
+            case 3 -> {
+                Main.main(null);
+            }
+            case 4 -> {
+                saveGame();
+                FileManager.addToFile(GameHandler.getInstance(), new Date().toString() + " [" + Log.INFO + "] " + "save game");
+                System.out.println(InputProcessor.ANSI_BLUE + "        ***********************************************");
+                System.out.println("        ***   Thanks for choosing us, Good bye.     ***");
+                System.out.println("        ***   Created and Designed by :             ***");
+                System.out.println("        ***             Amir Hossein Yari           ***");
+                System.out.println("        ***       Mohammad Hossein Shafizadegan     ***");
+                System.out.println("        ***********************************************");
+                FileManager.replace(GameHandler.getInstance(), "Time of the last change in the file : ", ("Time of the last change in the file : " + new Date()));
+            }
+        }
     }
 }
