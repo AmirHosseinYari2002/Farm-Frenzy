@@ -400,3 +400,8 @@ Thu Jun 03 08:54:07 IRDT 2021 [INFO] Show information of map
 Thu Jun 03 08:54:07 IRDT 2021 [INFO] Time go forward10 unit
 Thu Jun 03 08:54:18 IRDT 2021 [ERROR] not enough product in Barn
 Thu Jun 03 08:54:21 IRDT 2021 [INFO] Loaded successfully
+Thu Jun 03 11:44:13 IRDT 2021 [INFO] Sign up successfully
+(user : Mohsh )
+Thu Jun 03 11:44:42 IRDT 2021 [INFO] Signed In successfully
+(user : Mohsh )
+Thu Jun 03 11:44:55 IRDT 2021 [INFO] start level
