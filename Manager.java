@@ -422,12 +422,18 @@ public class Manager {
     public String startingWorkshop(String name){
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
-                if (!productsInBarn.containsKey(workShop.input))
+                Product product = null;
+                for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()){
+                    if (entry.getKey().getName().equals(workShop.input.getName()))
+                        product = entry.getKey();
+                }
+                if (product == null)
                     return "b";
-                if (productsInBarn.get(workShop.input) >= workShop.level) {
-                    if (productsInBarn.get(workShop.input)-workShop.level == 0) {
-                        productsInBarn.remove(workShop.input);
-                    }else productsInBarn.replace(workShop.input,productsInBarn.get(workShop.input)-workShop.level);
+                if (productsInBarn.get(product) >= workShop.level) {
+                    System.out.println("Initializing");
+                    if (productsInBarn.get(product)-workShop.level == 0) {
+                        productsInBarn.remove(product);
+                    }else productsInBarn.replace(product,productsInBarn.get(product)-workShop.level);
                     workShop.setStartTime(level.time);
                     return workShop.name.concat(String.valueOf(workShop.productionTime));
                 }
