@@ -11,7 +11,7 @@ public class SewingWS extends WorkShop{
 
     @Override
     Product producing() {
-        return output;
+        return new Product(output);
     }
 
     //Singleton Design
