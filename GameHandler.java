@@ -77,13 +77,14 @@ public class GameHandler {
         FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.INFO+"] "+"finished level"+levelNum);
         System.out.println("Level status: Completed - "+level.status);
         int levelPrize = switch (level.status) {
-            case "golden" -> level.goldenGiftCoin;
-            case "silver" -> level.silverGiftCoin;
-            case "bronze" -> level.bronzeGiftCoin;
+            case "Golden" -> level.goldenGiftCoin;
+            case "Silver" -> level.silverGiftCoin;
+            case "Bronze" -> level.bronzeGiftCoin;
             default -> 0;
         };
         player.setCoins(player.getCoins()+levelPrize);
-        player.setLevel(player.getLevel()+1);
+        if (levelNum == player.getLevel())
+            player.setLevel(player.getLevel()+1);
     }
     public static void saveGame(){
         FileManager.remove(authenticator.getUsers(), player.getName());
@@ -92,19 +93,20 @@ public class GameHandler {
     }
     public static void help(){
         System.out.println(InputProcessor.ANSI_WHITE+"Game Commands:");
-        System.out.println("+-----------------------------+------------------------------------------------+");
-        System.out.println(InputProcessor.ANSI_PURPLE+"| 1-BUY <animal_name>         | "+InputProcessor.ANSI_YELLOW+"buying domestic animals, cat and hound         |\n" +
-                InputProcessor.ANSI_PURPLE+"| 2-BUILD <workshop_name>     | "+InputProcessor.ANSI_YELLOW+"building a workshop                            |\n" +
-                InputProcessor.ANSI_PURPLE+"| 3-PICKUP <x y>              | "+InputProcessor.ANSI_YELLOW+"picking up products on the ground              |\n" +
-                InputProcessor.ANSI_PURPLE+"| 4-WELL                      | "+InputProcessor.ANSI_YELLOW+"Filling water bucket                           |\n" +
-                InputProcessor.ANSI_PURPLE+"| 5-PLANT <x y>               | "+InputProcessor.ANSI_YELLOW+"planting grass on position x y                 |\n" +
-                InputProcessor.ANSI_PURPLE+"| 6-WORK <workshop_name>      | "+InputProcessor.ANSI_YELLOW+"start working a workshop                       |\n" +
-                InputProcessor.ANSI_PURPLE+"| 7-CAGE <x y>                | "+InputProcessor.ANSI_YELLOW+"trapping and putting wild animals in cage      |\n" +
-                InputProcessor.ANSI_PURPLE+"| 8-TURN <n>                  | "+InputProcessor.ANSI_YELLOW+"going time forward for n time unit             |\n" +
-                InputProcessor.ANSI_PURPLE+"| 9-TRUCK LOAD <item_name>    | "+InputProcessor.ANSI_YELLOW+"Loading products to the truck                  |\n" +
-                InputProcessor.ANSI_PURPLE+"| 10-TRUCK UNLOAD <item_name> | "+InputProcessor.ANSI_YELLOW+"Unloading products from the truck              |\n" +
-                InputProcessor.ANSI_PURPLE+"| 11-TRUCK GO                 | "+InputProcessor.ANSI_YELLOW+"The truck will start traveling                 |");
-        System.out.println(InputProcessor.ANSI_WHITE+"+-----------------------------+------------------------------------------------+");
+        System.out.println("+-----------------------------+-------------------------------------------------+");
+        System.out.println(InputProcessor.ANSI_PURPLE+"| 1-BUY <animal_name>         | "+InputProcessor.ANSI_YELLOW+" buying domestic animals, cat and hound         |\n" +
+                InputProcessor.ANSI_PURPLE+"| 2-BUILD <workshop_name>     | "+InputProcessor.ANSI_YELLOW+" building a workshop                            |\n" +
+                InputProcessor.ANSI_PURPLE+"| 3-PICKUP <x y>              | "+InputProcessor.ANSI_YELLOW+" picking up products on the ground              |\n" +
+                InputProcessor.ANSI_PURPLE+"| 4-WELL                      | "+InputProcessor.ANSI_YELLOW+" Filling water bucket                           |\n" +
+                InputProcessor.ANSI_PURPLE+"| 5-PLANT <x y>               | "+InputProcessor.ANSI_YELLOW+" planting grass on position x y                 |\n" +
+                InputProcessor.ANSI_PURPLE+"| 6-WORK <workshop_name>      | "+InputProcessor.ANSI_YELLOW+" start working a workshop                       |\n" +
+                InputProcessor.ANSI_PURPLE+"| 7-UPGRADE WORKSHOP <name>   | "+InputProcessor.ANSI_YELLOW+" upgrade workshop to level 2                    |\n" +
+                InputProcessor.ANSI_PURPLE+"| 8-CAGE <x y>                | "+InputProcessor.ANSI_YELLOW+" trapping and putting wild animals in cage      |\n" +
+                InputProcessor.ANSI_PURPLE+"| 9-TURN <n>                  | "+InputProcessor.ANSI_YELLOW+" going time forward for n time unit             |\n" +
+                InputProcessor.ANSI_PURPLE+"| 10-TRUCK LOAD <item_name>   | "+InputProcessor.ANSI_YELLOW+" Loading products to the truck                  |\n" +
+                InputProcessor.ANSI_PURPLE+"| 11-TRUCK UNLOAD <item_name> | "+InputProcessor.ANSI_YELLOW+" Unloading products from the truck              |\n" +
+                InputProcessor.ANSI_PURPLE+"| 12-TRUCK GO                 | "+InputProcessor.ANSI_YELLOW+" The truck will start traveling                 |");
+        System.out.println(InputProcessor.ANSI_WHITE+"+-----------------------------+-------------------------------------------------+");
     }
     public static void startMenu(){
         int answer = 0;
