@@ -59,6 +59,10 @@ public class Product {
         this.Y = product.Y;
     }
 
+    public Product(){
+
+    }
+
     @Override
     public boolean equals(Object o){
         if (!(o instanceof Product))

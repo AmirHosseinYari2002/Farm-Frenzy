@@ -422,18 +422,26 @@ public class Manager {
     public String startingWorkshop(String name){
         for (WorkShop workShop : workShops) {
             if (workShop.name.equals(name)){
-                Product product = null;
+                Product[] product = new Product[workShop.level];
+                int i = 0;
                 for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()){
-                    if (entry.getKey().getName().equals(workShop.input.getName()))
-                        product = entry.getKey();
+                    if (entry.getKey().getName().equals(workShop.input.getName()) && i < 2){
+                        product[i] = entry.getKey();
+                        i++;
+                    }
                 }
-                if (product == null)
+                if (product[0] == null){
+                    System.out.println("ERROR");
                     return "b";
-                if (productsInBarn.get(product) >= workShop.level) {
-                    System.out.println("Initializing");
-                    if (productsInBarn.get(product)-workShop.level == 0) {
-                        productsInBarn.remove(product);
-                    }else productsInBarn.replace(product,productsInBarn.get(product)-workShop.level);
+                }
+                if (workShop.level == 1){
+                    productsInBarn.remove(product[0]);
+                    workShop.setStartTime(level.time);
+                    return workShop.name.concat(String.valueOf(workShop.productionTime));
+                }
+                if (product[1] != null){
+                    productsInBarn.remove(product[0]);
+                    productsInBarn.remove(product[1]);
                     workShop.setStartTime(level.time);
                     return workShop.name.concat(String.valueOf(workShop.productionTime));
                 }
@@ -445,8 +453,11 @@ public class Manager {
     public String checkWorkshops(){
         for (WorkShop workShop : workShops) {
             if (workShop.isProductReady(level.time)){
-                Product product = workShop.producing();
-                productsList.add(product);
+                for (int i = 0; i < workShop.level; i++) {
+                    Product product = workShop.producing();
+                    productsList.add(product);
+                    product.setStartDisappearTime(level.time);
+                }
                 workShop.setStartTime(new TIME(0));
                 return workShop.name;
             }else if (workShop.startTime == null)
