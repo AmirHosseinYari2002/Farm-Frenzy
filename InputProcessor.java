@@ -176,9 +176,9 @@ public class InputProcessor {
         manager.collectProducts();
         manager.destroyDomesticAnimalAndProduct();
         manager.destroyWildAnimal();
-        manager.isAnimalManufacturedProduct();
         manager.disappearProduct();
         manager.appearWildAnimal();
+        manager.isAnimalManufacturedProduct();
         String task = manager.checkTasks();
         if (task.equals("coins")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
@@ -190,6 +190,7 @@ public class InputProcessor {
     }
     private void showInformation(){
         System.out.println(ANSI_BLUE+"Time : "+ manager.level.time.n);
+        System.out.println(ANSI_BLUE+"Your Coins : "+manager.player.getCoins());
         System.out.println(ANSI_CYAN+"               Animals\n"+"+++++++++++++++++++++++++++++++++++++++++");
         for (DomesticAnimal domesticAnimal : manager.getDomesticAnimalsList()) {
             System.out.println("|"+domesticAnimal.name+manager.space(10,domesticAnimal.name)+"|"+domesticAnimal.remainingLife+manager.space(5,"10")+"|"+domesticAnimal.X+manager.space(5,"1")+"|"+domesticAnimal.Y+manager.space(5,"1"));

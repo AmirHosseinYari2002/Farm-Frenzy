@@ -21,7 +21,7 @@ public abstract class WorkShop {
     }
 
     public void setStartTime(TIME startTime) {
-        this.startTime = startTime;
+        this.startTime = new TIME(startTime);
     }
 
     protected void upgrading(){
@@ -35,6 +35,8 @@ public abstract class WorkShop {
     abstract Product producing();
 
     protected boolean isProductReady(TIME time){
+        if (this.startTime == null)
+            return false;
         return TIME.diff(time, this.startTime) == productionTime.n;
     }
 }

@@ -1,4 +1,5 @@
 import java.io.File;
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map;
 import java.util.Scanner;
@@ -91,17 +92,19 @@ public class GameHandler {
     }
     public static void help(){
         System.out.println(InputProcessor.ANSI_WHITE+"Game Commands:");
-        System.out.println(InputProcessor.ANSI_PURPLE+"BUY <animal_name> -> "+InputProcessor.ANSI_YELLOW+"buying domestic animals, cat and hound\n" +
-                InputProcessor.ANSI_PURPLE+"BUILD <workshop_name> -> "+InputProcessor.ANSI_YELLOW+"building a workshop \n" +
-                InputProcessor.ANSI_PURPLE+"PICKUP <x y> -> "+InputProcessor.ANSI_YELLOW+"picking up products on the ground\n" +
-                InputProcessor.ANSI_PURPLE+"WELL ->"+InputProcessor.ANSI_YELLOW+"Filling water bucket\n" +
-                InputProcessor.ANSI_PURPLE+"PLANT <x y> -> "+InputProcessor.ANSI_YELLOW+"planting grass on position x y\n" +
-                InputProcessor.ANSI_PURPLE+"WORK <workshop_name> -> "+InputProcessor.ANSI_YELLOW+"start working a workshop\n" +
-                InputProcessor.ANSI_PURPLE+"CAGE <x y> -> "+InputProcessor.ANSI_YELLOW+"trapping and putting wild animals in cage\n" +
-                InputProcessor.ANSI_PURPLE+"TURN <n> -> "+InputProcessor.ANSI_YELLOW+"going time forward for n time unit\n" +
-                InputProcessor.ANSI_PURPLE+"TRUCK LOAD <item_name> -> "+InputProcessor.ANSI_YELLOW+"Loading products to the truck\n" +
-                InputProcessor.ANSI_PURPLE+"TRUCK UNLOAD <item_name> -> "+InputProcessor.ANSI_YELLOW+"Unloading products from the truck\n" +
-                InputProcessor.ANSI_PURPLE+"TRUCK GO -> "+InputProcessor.ANSI_YELLOW+"The truck will start traveling.");
+        System.out.println("+-----------------------------+------------------------------------------------+");
+        System.out.println(InputProcessor.ANSI_PURPLE+"| 1-BUY <animal_name>         | "+InputProcessor.ANSI_YELLOW+"buying domestic animals, cat and hound         |\n" +
+                InputProcessor.ANSI_PURPLE+"| 2-BUILD <workshop_name>     | "+InputProcessor.ANSI_YELLOW+"building a workshop                            |\n" +
+                InputProcessor.ANSI_PURPLE+"| 3-PICKUP <x y>              | "+InputProcessor.ANSI_YELLOW+"picking up products on the ground              |\n" +
+                InputProcessor.ANSI_PURPLE+"| 4-WELL                      | "+InputProcessor.ANSI_YELLOW+"Filling water bucket                           |\n" +
+                InputProcessor.ANSI_PURPLE+"| 5-PLANT <x y>               | "+InputProcessor.ANSI_YELLOW+"planting grass on position x y                 |\n" +
+                InputProcessor.ANSI_PURPLE+"| 6-WORK <workshop_name>      | "+InputProcessor.ANSI_YELLOW+"start working a workshop                       |\n" +
+                InputProcessor.ANSI_PURPLE+"| 7-CAGE <x y>                | "+InputProcessor.ANSI_YELLOW+"trapping and putting wild animals in cage      |\n" +
+                InputProcessor.ANSI_PURPLE+"| 8-TURN <n>                  | "+InputProcessor.ANSI_YELLOW+"going time forward for n time unit             |\n" +
+                InputProcessor.ANSI_PURPLE+"| 9-TRUCK LOAD <item_name>    | "+InputProcessor.ANSI_YELLOW+"Loading products to the truck                  |\n" +
+                InputProcessor.ANSI_PURPLE+"| 10-TRUCK UNLOAD <item_name> | "+InputProcessor.ANSI_YELLOW+"Unloading products from the truck              |\n" +
+                InputProcessor.ANSI_PURPLE+"| 11-TRUCK GO                 | "+InputProcessor.ANSI_YELLOW+"The truck will start traveling                 |");
+        System.out.println(InputProcessor.ANSI_WHITE+"+-----------------------------+------------------------------------------------+");
     }
     public static void startMenu(){
         int answer = 0;
@@ -113,7 +116,10 @@ public class GameHandler {
         System.out.print(InputProcessor.ANSI_GREEN+"Select your desired option: ");
         answer = scanner.nextInt();
         switch (answer) {
-            case 1 -> startLevel();
+            case 1 -> {
+                startLevel();
+                startMenu();
+            }
             case 2 -> {
                 help();
                 System.out.println(InputProcessor.ANSI_WHITE + "Do you want to return? (1-yes  2-no)");

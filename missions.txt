@@ -1,6 +1,6 @@
 9
 LevelCoins,300,300,400,400,500,500,600,700,700,800
-WildAnimalLevel1,Lion-5,Lion-15
+WildAnimalLevel1,Lion-5
 WildAnimalLevel2,Lion-3,Bear-13,Lion-23
 WildAnimalLevel3,Lion-2,Bear-12,Tiger-22,Bear-32
 WildAnimalLevel4,Bear-5,Tiger-15,Lion-25,Tiger-35
@@ -9,7 +9,6 @@ WildAnimalLevel6,Tiger-10,Bear-15,Lion-15,Tiger-30,Tiger-40
 WildAnimalLevel7,Tiger-10,Bear-10,Lion-20,Lion-20,Bear-35
 WildAnimalLevel8,Lion-5,Bear-30,Lion-30,Tiger-30
 WildAnimalLevel9,Bear-5,Bear-5,Lion-20,Tiger-20,Tiger-50,Bear-50
-WildAnimalLevel10,Lion-3,Bear-10,Lion-13,Tiger-20,Tiger-40,Tiger-40,Lion-40,Bear-40
 TasksLevel1,egg-5
 TasksLevel2,Turkey-5,feather-10
 TasksLevel3,Hen-5,flour-5
@@ -28,7 +27,6 @@ LevelFinishTime6,100,90,80
 LevelFinishTime7,110,100,90
 LevelFinishTime8,120,110,100
 LevelFinishTime9,130,120,110
-LevelFinishTime10,140,130,120
 giftCoinsLevel1,200,300,400
 giftCoinsLevel2,300,400,500
 giftCoinsLevel3,400,500,600
@@ -38,4 +36,3 @@ giftCoinsLevel6,700,800,900
 giftCoinsLevel7,800,900,1000
 giftCoinsLevel8,900,1000,1100
 giftCoinsLevel9,1000,1100,1200
-giftCoinsLevel10,1100,1200,1300

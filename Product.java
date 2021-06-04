@@ -35,6 +35,10 @@ public class Product {
         return startDisappearTime;
     }
 
+    public void setStartDisappearTime(TIME startDisappearTime) {
+        this.startDisappearTime = startDisappearTime;
+    }
+
     public Product(String name, int sellingPrice, int barnSpace, int disappearTime, TIME startDisappearTime, int X, int Y) {
         this.name = name;
         this.sellingPrice = sellingPrice;
