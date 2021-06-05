@@ -385,11 +385,17 @@ public class Manager {
                 }else return "barnSpace";
             }
         }
+        int i = 0;
+        String transfer = "";
         for (Product product : removeProductList) {
             if (productsList.contains(product)) {
                 productsList.remove(product);
-                removeProductList.clear();
-                return product.getName();
+                transfer += product.getName()+",";
+                i++;
+                if (i == removeProductList.size()){
+                    removeProductList.clear();
+                    return transfer;
+                }
             }
         }
         return "wrongLocation";
@@ -540,9 +546,9 @@ public class Manager {
         else return 0;
     }
     public String checkTasks(){
-        if (level.tasks.containsKey("coin")){
-            if (level.coins == level.tasks.get("coin")){
-                level.tasks.remove("coin");
+        if (level.tasks.containsKey("coins")){
+            if (level.coins >= level.tasks.get("coins")){
+                level.tasks.remove("coins");
                 return "coins";
             }
         }

@@ -773,14 +773,4 @@ Fri Jun 04 09:45:57 IRDT 2021 [INFO] Show information of map
 Fri Jun 04 09:45:57 IRDT 2021 [INFO] Time go forward1 unit
 Fri Jun 04 09:49:27 IRDT 2021 [INFO] Signed In successfully
 Sat Jun 05 17:41:07 IRDT 2021 [INFO] Signed In successfully
-(user : Mohsh )
-Sat Jun 05 17:41:09 IRDT 2021 [INFO] start level
-Sat Jun 05 17:41:13 IRDT 2021 [INFO] purchase animal was successful
-Sat Jun 05 17:41:15 IRDT 2021 [INFO] purchase animal was successful
-Sat Jun 05 17:41:18 IRDT 2021 [INFO] Show information of map
-Sat Jun 05 17:41:18 IRDT 2021 [INFO] Show information of map
-Sat Jun 05 17:41:18 IRDT 2021 [INFO] Show information of map
-Sat Jun 05 17:41:18 IRDT 2021 [INFO] Time go forward3 unit
-Sat Jun 05 17:41:22 IRDT 2021 [INFO] product picked up
-Sat Jun 05 17:41:24 IRDT 2021 [INFO] Show information of map
-Sat Jun 05 17:41:24 IRDT 2021 [INFO] Time go forward1 unit
+
