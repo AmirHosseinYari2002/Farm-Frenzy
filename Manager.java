@@ -381,17 +381,14 @@ public class Manager {
             if (product.getX() == x  &&  product.getY() == y){
                 if (Barn.getInstance().getFreeSpace() >= product.getBarnSpace()) {
                     removeProductList.add(product);
-                    if (productsInBarn.containsKey(product)){
-                        productsInBarn.put(product,productsInBarn.get(product)+1);
-                    }
-                    else
-                        productsInBarn.put(product,1);
+                    productsInBarn.put(product,1);
                 }else return "barnSpace";
             }
         }
         for (Product product : removeProductList) {
             if (productsList.contains(product)) {
                 productsList.remove(product);
+                removeProductList.clear();
                 return product.getName();
             }
         }
@@ -591,7 +588,6 @@ public class Manager {
     }
     public void isAnimalManufacturedProduct(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
-            System.out.println(level.time.n+" "+domesticAnimal.startProduceProduct.n);
             if (level.time.n-domesticAnimal.startProduceProduct.n == domesticAnimal.timeRequiredToProduct){
                 Product product = domesticAnimal.outProduct(level.time);
                 domesticAnimal.startProduceProduct = new TIME(level.time.n);
