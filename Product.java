@@ -52,7 +52,6 @@ public class Product {
     public Product(Product product) {
         this.name = product.name;
         this.sellingPrice = product.sellingPrice;
-        this.startDisappearTime = new TIME(product.startDisappearTime);
         this.disappearTime = product.disappearTime;
         this.barnSpace = product.barnSpace;
         this.X = product.X;

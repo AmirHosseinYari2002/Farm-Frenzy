@@ -904,3 +904,29 @@ Fri Jun 04 10:06:42 IRDT 2021 [INFO] Show information of map
 Fri Jun 04 10:06:42 IRDT 2021 [INFO] Time go forward1 unit
 Fri Jun 04 10:07:56 IRDT 2021 [INFO] Signed In successfully
 
+Sat Jun 05 10:33:37 IRDT 2021 [INFO] Signed In successfully
+(user : Mohsh )
+Sat Jun 05 10:33:40 IRDT 2021 [INFO] start level
+Sat Jun 05 10:33:46 IRDT 2021 [INFO] purchase animal was successful
+Sat Jun 05 10:33:48 IRDT 2021 [INFO] purchase animal was successful
+Sat Jun 05 10:33:51 IRDT 2021 [INFO] purchase animal was successful
+Sat Jun 05 10:33:55 IRDT 2021 [INFO] you bought mill
+Sat Jun 05 10:34:02 IRDT 2021 [INFO] mill upgraded
+Sat Jun 05 10:34:04 IRDT 2021 [INFO] The product of does not work is ready
+Sat Jun 05 10:34:04 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:04 IRDT 2021 [INFO] The product of does not work is ready
+Sat Jun 05 10:34:04 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:04 IRDT 2021 [INFO] Time go forward2 unit
+Sat Jun 05 10:34:11 IRDT 2021 [INFO] product picked up
+Sat Jun 05 10:34:14 IRDT 2021 [INFO] product picked up
+Sat Jun 05 10:34:18 IRDT 2021 [INFO] product picked up
+Sat Jun 05 10:34:21 IRDT 2021 [INFO] The product of does not work is ready
+Sat Jun 05 10:34:21 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:21 IRDT 2021 [INFO] Time go forward1 unit
+Sat Jun 05 10:34:25 IRDT 2021 [INFO] Workshop start working
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] The product of mill is ready
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] Show information of map
+Sat Jun 05 10:34:28 IRDT 2021 [INFO] Time go forward4 unit

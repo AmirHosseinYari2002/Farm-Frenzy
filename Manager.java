@@ -607,9 +607,9 @@ public class Manager {
             }
         }
         for (Product product : removeProductList) {
-            if (productsList.contains(product))
-                productsList.remove(product);
+            productsList.remove(product);
         }
+        removeProductList.clear();
     }
     public void appearWildAnimal(){
         for (Map.Entry<String,Integer> entry : level.wildAnimals.entrySet()){
