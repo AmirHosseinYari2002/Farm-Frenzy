@@ -239,12 +239,21 @@ public class Manager {
         for (Cat cat : catsList) {
             for (Product product : productsList) {
                 if (product.getX() == cat.X  &&  product.getY() == cat.Y  &&  Barn.getInstance().getFreeSpace() >= product.getBarnSpace()){
-                    productsList.remove(product);
-                    if (productsInBarn.containsKey(product))
-                        productsInBarn.replace(product,productsInBarn.get(product)+1);
-                    else productsInBarn.put(product,1);
-                        Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace()-product.getBarnSpace());
+                    removeProductList.add(product);
+                    productsInBarn.put(product,1);
+                    Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace()-product.getBarnSpace());
                 }
+            }
+        }
+        int i = 1;
+        for (Product product : removeProductList) {
+            if (productsList.contains(product)) {
+                productsList.remove(product);
+                if (i == removeProductList.size()){
+                    removeProductList.clear();
+                    return;
+                }
+                i++;
             }
         }
     }
@@ -493,54 +502,66 @@ public class Manager {
         if (checkTrip() != 0)
             return "Traveling";
         else {
-            for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()) {
-                if (entry.getKey().getName().equals(name)) {
-                    if (entry.getValue() >= amount) {
-                        if (amount * entry.getKey().getBarnSpace() <= Car.getInstance().getEmptySpace()) {
-                            productsInBarn.replace(entry.getKey(), entry.getValue() - amount);
-                            Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * entry.getKey().getBarnSpace());
-                            Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * entry.getKey().getBarnSpace());
-                            loadedProducts.put(entry.getKey(), amount);
-                            return "loaded";
-                        } else return "notEnoughSpace";
-                    } else return "notEnoughProduct";
+            int count = 0;
+            for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()){
+                if (entry.getKey().getName().equals(name)){
+                    count++;
                 }
             }
+            if (count == 0)
+                return "notInBarn";
+            if (amount > count)
+                return "notEnoughSpace";
+            Product[] inTruck = new Product[amount];
+            int i = 0;
+            for (Map.Entry<Product, Integer> entry : productsInBarn.entrySet()){
+                if (entry.getKey().getName().equals(name) && i < amount){
+                    inTruck[i] = entry.getKey();
+                    i++;
+                }
+            }
+            for (Product product : inTruck) {
+                productsInBarn.remove(product);
+                loadedProducts.put(product, 1);
+            }
+            Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * inTruck[0].getBarnSpace());
+            Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * inTruck[0].getBarnSpace());
         }
-        return "notInBarn";
+        return "loaded";
     }
     public String  unLoadingProducts(String name){
         if (checkTrip() != 0)
             return "Traveling";
         else {
-            for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()) {
-                if (entry.getKey().getName().equals(name)) {
-                    if (productsInBarn.containsKey(entry.getKey())) {
-                        if (Barn.getInstance().getFreeSpace() >= entry.getValue() * entry.getKey().getBarnSpace()) {
-                            productsInBarn.replace(entry.getKey(), productsInBarn.get(entry.getKey()) + entry.getValue());
-                            unLoadedProduct.put(entry.getKey(), entry.getValue());
-                            return "unLoaded";
-                        } else return "notEnoughSpace";
-                    } else {
-                        if (Barn.getInstance().getFreeSpace() >= entry.getValue() * entry.getKey().getBarnSpace()) {
-                            productsInBarn.put(entry.getKey(), entry.getValue());
-                            unLoadedProduct.put(entry.getKey(), entry.getValue());
-                            return "unLoaded";
-                        } else return "notEnoughSpace";
-                    }
+            int i = 0;
+            Product[] inTruck = new Product[loadedProducts.size()];
+            for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
+                if (entry.getKey().getName().equals(name)){
+                    inTruck[i] = entry.getKey();
+                    i++;
                 }
             }
-            for (Map.Entry<Product, Integer> entry : unLoadedProduct.entrySet()) {
-                if (loadedProducts.containsKey(entry.getKey()))
-                    loadedProducts.remove(entry.getKey());
+            int spaceNeeded = 0;
+            for (int j = 0; j < i; j++) {
+                spaceNeeded += inTruck[j].getBarnSpace();
             }
+            if (spaceNeeded > Barn.getInstance().getFreeSpace())
+                return "notEnoughSpace";
+            for (Product product : inTruck) {
+                loadedProducts.remove(product);
+                productsInBarn.put(product, 1);
+            }
+            Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() - spaceNeeded);
+            Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() + spaceNeeded);
         }
-        return "Invalid";
+        return "unLoaded";
     }
     public void startTrip(){
         Car.getInstance().setStartTrip(new TIME(level.time.n));
     }
     public int checkTrip(){
+        if (Car.getInstance().getStartTrip() == null)
+            return 0;
         if (!Car.getInstance().IsCarBack(level.time))
             return TIME.diff(level.time,Car.getInstance().getStartTrip());
         else return 0;
