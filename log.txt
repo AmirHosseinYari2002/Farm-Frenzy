@@ -655,3 +655,28 @@ Thu Jun 03 16:40:52 IRDT 2021 [INFO] Show information of map
 Thu Jun 03 16:40:52 IRDT 2021 [INFO] Time go forward1 unit
 Thu Jun 03 16:41:43 IRDT 2021 [INFO] Signed In successfully
 
+Sun Jun 06 18:17:27 IRDT 2021 [INFO] Signed In successfully
+(user : Mohsh )
+Sun Jun 06 18:17:30 IRDT 2021 [INFO] start level
+Sun Jun 06 18:17:33 IRDT 2021 [INFO] purchase animal was successful
+Sun Jun 06 18:17:36 IRDT 2021 [INFO] purchase animal was successful
+Sun Jun 06 18:17:38 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:17:38 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:17:38 IRDT 2021 [INFO] Time go forward2 unit
+Sun Jun 06 18:17:41 IRDT 2021 [INFO] product picked up
+Sun Jun 06 18:17:45 IRDT 2021 [INFO] product picked up
+Sun Jun 06 18:17:47 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:17:47 IRDT 2021 [INFO] Time go forward1 unit
+Sun Jun 06 18:17:53 IRDT 2021 [INFO] Loaded successfully
+Sun Jun 06 18:17:57 IRDT 2021 [INFO] The car started transporting
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Show information of map
+Sun Jun 06 18:18:00 IRDT 2021 [INFO] Time go forward10 unit

@@ -566,6 +566,20 @@ public class Manager {
             return TIME.diff(level.time,Car.getInstance().getStartTrip());
         else return 0;
     }
+    public int sellProducts(){
+        if (Car.getInstance().getStartTrip() == null)
+            return -1;
+        if (Car.getInstance().IsCarBack(level.time)){
+            int sellPrice = 0;
+            for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
+                sellPrice += entry.getKey().getSellingPrice();
+            }
+            player.setCoins(player.getCoins()+sellPrice);
+            loadedProducts.clear();
+            return sellPrice;
+        }
+        return -1;
+    }
     public String checkTasks(){
         if (level.tasks.containsKey("coins")){
             if (level.coins >= level.tasks.get("coins")){

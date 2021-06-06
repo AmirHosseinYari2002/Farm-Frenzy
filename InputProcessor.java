@@ -179,6 +179,9 @@ public class InputProcessor {
         manager.disappearProduct();
         manager.appearWildAnimal();
         manager.isAnimalManufacturedProduct();
+        int sellProducts = manager.sellProducts();
+        if (sellProducts != -1 && sellProducts != 0)
+            System.out.println(ANSI_GREEN+"Products loaded to the truck sold for "+sellProducts);
         String task = manager.checkTasks();
         if (task.equals("coins")){
             System.out.println(ANSI_CYAN+"Good! You complete a task. Your coins reach the desired amount.");
