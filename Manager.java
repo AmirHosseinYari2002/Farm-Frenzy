@@ -77,17 +77,15 @@ public class Manager {
     public void move(){
         for (DomesticAnimal domesticAnimal : domesticAnimalsList) {
             if (grassesList.size() > 0) {
-                if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() != domesticAnimal.X && shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() != domesticAnimal.Y) {
-                    if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
-                        domesticAnimal.X++;
-                    } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() < domesticAnimal.X) {
-                        domesticAnimal.X--;
-                    } else {
-                        if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
-                            domesticAnimal.Y++;
-                        } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
-                            domesticAnimal.Y--;
-                        }
+                if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() > domesticAnimal.X) {
+                    domesticAnimal.X++;
+                } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getX() < domesticAnimal.X) {
+                    domesticAnimal.X--;
+                } else {
+                    if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() > domesticAnimal.Y) {
+                        domesticAnimal.Y++;
+                    } else if (shortestDistanceToEatGrass(domesticAnimal.X, domesticAnimal.Y).getY() < domesticAnimal.Y) {
+                        domesticAnimal.Y--;
                     }
                 }
             }else {
@@ -107,17 +105,15 @@ public class Manager {
         }
         for (Cat cat : catsList) {
             if (productsList.size() > 0) {
-                if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() != cat.X && shortestDistanceToCollectProduct(cat.X, cat.Y).getY() != cat.Y) {
-                    if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() > cat.X) {
-                        cat.X++;
-                    } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() < cat.X) {
-                        cat.X--;
-                    } else {
-                        if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() > cat.Y) {
-                            cat.Y++;
-                        } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() < cat.Y) {
-                            cat.Y--;
-                        }
+                if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() > cat.X) {
+                    cat.X++;
+                } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getX() < cat.X) {
+                    cat.X--;
+                } else {
+                    if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() > cat.Y) {
+                        cat.Y++;
+                    } else if (shortestDistanceToCollectProduct(cat.X, cat.Y).getY() < cat.Y) {
+                        cat.Y--;
                     }
                 }
             }else {
@@ -314,54 +310,54 @@ public class Manager {
         StringBuilder stringBuilder = new StringBuilder("");
         switch (name) {
             case "bakery" -> {
-                if (level.coins >= Bakery.getInstance().getCost()){
+                if (player.getCoins() >= Bakery.getInstance().getCost()){
                     workShops.add(Bakery.getInstance());
-                    level.coins -= Bakery.getInstance().getCost();
+                    player.setCoins(player.getCoins()-Bakery.getInstance().getCost());
                     stringBuilder.append("bakery").append(" ").append(Bakery.getInstance().input.getName()).append(" ").append(Bakery.getInstance().output.getName());
                 }
                 else
                     return "coins";
             }
             case "iceCreamSelling" -> {
-                if (level.coins >= IceCreamSelling.getInstance().getCost()){
+                if (player.getCoins() >= IceCreamSelling.getInstance().getCost()){
                     workShops.add(IceCreamSelling.getInstance());
-                    level.coins -= IceCreamSelling.getInstance().getCost();
+                    player.setCoins(player.getCoins()-IceCreamSelling.getInstance().getCost());
                     stringBuilder.append("iceCreamSelling").append(" ").append(IceCreamSelling.getInstance().input.getName()).append(" ").append(IceCreamSelling.getInstance().output.getName());
                 }
                 else
                     return "coins";
             }
             case "milkPackaging" -> {
-                if (level.coins >= MilkPackaging.getInstance().getCost()){
+                if (player.getCoins() >= MilkPackaging.getInstance().getCost()){
                     workShops.add(MilkPackaging.getInstance());
-                    level.coins -= MilkPackaging.getInstance().getCost();
+                    player.setCoins(player.getCoins()-MilkPackaging.getInstance().getCost());
                     stringBuilder.append("milkPacking").append(" ").append(MilkPackaging.getInstance().input.getName()).append(" ").append(MilkPackaging.getInstance().output.getName());
                 }
                 else
                     return "coins";
             }
             case "mill" -> {
-                if (level.coins >= Mill.getInstance().getCost()){
+                if (player.getCoins() >= Mill.getInstance().getCost()){
                     workShops.add(Mill.getInstance());
-                    level.coins -= Mill.getInstance().getCost();
+                    player.setCoins(player.getCoins()-Mill.getInstance().getCost());
                     stringBuilder.append("mill").append(" ").append(Mill.getInstance().input.getName()).append(" ").append(Mill.getInstance().output.getName());
                 }
                 else
                     return "coins";
             }
             case "sewing" -> {
-                if (level.coins >= SewingWS.getInstance().getCost()){
+                if (player.getCoins() >= SewingWS.getInstance().getCost()){
                     workShops.add(SewingWS.getInstance());
-                    level.coins -= SewingWS.getInstance().getCost();
+                    player.setCoins(player.getCoins()-SewingWS.getInstance().getCost());
                     stringBuilder.append("sewing").append(" ").append(SewingWS.getInstance().input.getName()).append(" ").append(SewingWS.getInstance().output.getName());
                 }
                 else
                     return "coins";
             }
             case "weaving" -> {
-                if (level.coins >= WeavingWS.getInstance().getCost()){
+                if (player.getCoins() >= WeavingWS.getInstance().getCost()){
                     workShops.add(WeavingWS.getInstance());
-                    level.coins -= WeavingWS.getInstance().getCost();
+                    player.setCoins(player.getCoins()-WeavingWS.getInstance().getCost());
                     stringBuilder.append("weaving").append(" ").append(WeavingWS.getInstance().input.getName()).append(" ").append(WeavingWS.getInstance().output.getName());
                 }
                 else
@@ -391,6 +387,7 @@ public class Manager {
                 if (Barn.getInstance().getFreeSpace() >= product.getBarnSpace()) {
                     removeProductList.add(product);
                     productsInBarn.put(product,1);
+                    Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace()-product.getBarnSpace());
                 }else return "barnSpace";
             }
         }

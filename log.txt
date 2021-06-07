@@ -699,3 +699,32 @@ Mon Jun 07 11:30:36 IRDT 2021 [INFO] Time go forward2 unit
 Mon Jun 07 11:30:52 IRDT 2021 [INFO] Show information of map
 Mon Jun 07 11:30:52 IRDT 2021 [INFO] Show information of map
 Mon Jun 07 11:30:52 IRDT 2021 [INFO] Time go forward2 unit
+Mon Jun 07 16:48:06 IRDT 2021 [INFO] Signed In successfully
+(user : Mohsh )
+Mon Jun 07 16:48:08 IRDT 2021 [INFO] start level
+Mon Jun 07 16:48:13 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 16:48:16 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 16:48:19 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:19 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:48:24 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 16:48:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:26 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:48:32 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:32 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:48:40 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:40 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:48:46 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:46 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:48:52 IRDT 2021 [INFO] Cage level increased
+Mon Jun 07 16:48:54 IRDT 2021 [INFO] Cage level increased
+Mon Jun 07 16:48:57 IRDT 2021 [INFO] Cage level increased
+Mon Jun 07 16:48:59 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:48:59 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:49:08 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:49:08 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:49:13 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:49:13 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:49:17 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:49:17 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 16:49:19 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 16:49:19 IRDT 2021 [INFO] Time go forward1 unit
