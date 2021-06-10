@@ -9,5 +9,7 @@ public class Lion extends WildAnimal{
         this.cageLevelRequired = 3;
         this.OccupiedSpace = 15;
         this.name = "Lion";
+        this.decreaseCageLevel = false;
+        this.useCageOrder = false;
     }
 }

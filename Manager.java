@@ -485,16 +485,13 @@ public class Manager {
                     }
                     removeAnimalList.add(wildAnimal);
                 }
+                wildAnimal.decreaseCageLevel = true;
+                wildAnimal.useCageOrder = true;
                 return wildAnimal.cageLevel;
             }
         }
-        for (Animal animal : removeAnimalList) {
-            if (wildAnimalsList.contains(animal)){
-                wildAnimalsList.remove(animal);
-            }
-        }
         return -1;
-    }//TODO
+    }
     public String loadingProducts(String name, int amount){
         if (checkTrip() != 0)
             return "Traveling";
@@ -663,6 +660,19 @@ public class Manager {
                     }
                 }
             }
+        }
+    }
+    public void decreaseCageLevel(){
+        for (WildAnimal wildAnimal : wildAnimalsList) {
+            if (wildAnimal.useCageOrder){
+                if (!wildAnimal.decreaseCageLevel){
+                    wildAnimal.cageLevel--;
+                }
+            }
+            wildAnimal.decreaseCageLevel = false;
+        }
+        for (Animal animal : removeAnimalList) {
+            wildAnimalsList.remove(animal);
         }
     }
     public String space(int n,String word){

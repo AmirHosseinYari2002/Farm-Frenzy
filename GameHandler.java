@@ -131,6 +131,8 @@ public class GameHandler {
                 startMenu();
             }
             case 3 -> {
+                FileManager.addToFile(GameHandler.getInstance(), new Date().toString() + " [" + Log.INFO + "] " + "log out");
+                FileManager.replace(GameHandler.getInstance(), "Time of the last change in the file : ", ("Time of the last change in the file : " + new Date()));
                 Main.main(null);
             }
             case 4 -> {

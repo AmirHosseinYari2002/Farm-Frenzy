@@ -178,6 +178,7 @@ public class InputProcessor {
         manager.destroyWildAnimal();
         manager.disappearProduct();
         manager.appearWildAnimal();
+        manager.decreaseCageLevel();
         manager.isAnimalManufacturedProduct();
         int sellProducts = manager.sellProducts();
         if (sellProducts != -1 && sellProducts != 0)
@@ -199,7 +200,7 @@ public class InputProcessor {
             System.out.println("|"+domesticAnimal.name+manager.space(10,domesticAnimal.name)+"|"+domesticAnimal.remainingLife+manager.space(5,"10")+"|"+domesticAnimal.X+manager.space(5,"1")+"|"+domesticAnimal.Y+manager.space(5,"1"));
         }
         for (WildAnimal wildAnimal : manager.getWildAnimalsList()) {
-            System.out.println("|"+wildAnimal.name+manager.space(10,wildAnimal.name)+"|"+(wildAnimal.cageLevelRequired-wildAnimal.cageLevel)+manager.space(5,"1")+"|"+wildAnimal.X+manager.space(5,"1")+"|"+wildAnimal.Y+manager.space(5,"1"));
+            System.out.println("|"+wildAnimal.name+manager.space(10,wildAnimal.name)+"|"+wildAnimal.cageLevel+manager.space(5,"1")+"|"+wildAnimal.X+manager.space(5,"1")+"|"+wildAnimal.Y+manager.space(5,"1"));
         }
         for (Cat cat : manager.getCatsList()) {
             System.out.println("|"+cat.name+manager.space(10,cat.name)+"|"+cat.X+manager.space(5,"1")+"|"+cat.Y+manager.space(5,"1"));

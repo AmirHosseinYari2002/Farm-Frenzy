@@ -1,5 +1,5 @@
 File creation time : Wed Jun 02 14:31:31 IRDT 2021
-Time of the last change in the file : Mon Jun 07 10:39:01 IRDT 2021
+Time of the last change in the file : Mon Jun 07 18:51:07 IRDT 2021
 ---------------------------------------------------------------
 Wed Jun 02 17:30:38 IRDT 2021 [INFO] Signed In successfully
 (user : amir )
@@ -728,3 +728,163 @@ Mon Jun 07 16:49:17 IRDT 2021 [INFO] Show information of map
 Mon Jun 07 16:49:17 IRDT 2021 [INFO] Time go forward1 unit
 Mon Jun 07 16:49:19 IRDT 2021 [INFO] Show information of map
 Mon Jun 07 16:49:19 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:28:41 IRDT 2021 [INFO] Sign up successfully
+(user : hossein )
+Mon Jun 07 18:28:45 IRDT 2021 [INFO] start level
+Mon Jun 07 18:29:03 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:29:08 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:29:12 IRDT 2021 [ERROR] don't have enough coins to buy animal
+Mon Jun 07 18:29:17 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:29:17 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:29:17 IRDT 2021 [INFO] Time go forward2 unit
+Mon Jun 07 18:29:33 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:29:41 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:29:48 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:29:48 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:29:48 IRDT 2021 [INFO] Time go forward2 unit
+Mon Jun 07 18:29:55 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:30:07 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:30:10 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:30:10 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:30:10 IRDT 2021 [INFO] Time go forward2 unit
+Mon Jun 07 18:30:17 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:30:20 IRDT 2021 [INFO] egg reach the desired amount.
+Mon Jun 07 18:30:20 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:30:20 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:30:20 IRDT 2021 [INFO] finished level1
+Mon Jun 07 18:30:34 IRDT 2021 [INFO] start level
+Mon Jun 07 18:30:50 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:30:56 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:31:03 IRDT 2021 [ERROR] don't have enough coins to buy animal
+Mon Jun 07 18:31:09 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:31:09 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:31:09 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:31:09 IRDT 2021 [INFO] Time go forward3 unit
+Mon Jun 07 18:31:20 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:31:26 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:31:40 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:31:49 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:31:52 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:31:52 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:32:37 IRDT 2021 [INFO] Loaded successfully
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:32:43 IRDT 2021 [INFO] Time go forward10 unit
+Mon Jun 07 18:33:42 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:33:49 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:33:58 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:34:04 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:34:09 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:34:09 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:34:40 IRDT 2021 [INFO] Loaded successfully
+Mon Jun 07 18:36:27 IRDT 2021 [INFO] Signed In successfully
+(user : hossein )
+Mon Jun 07 18:39:13 IRDT 2021 [INFO] start level
+Mon Jun 07 18:39:22 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:39:26 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:39:29 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:39:29 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:39:29 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:39:29 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:39:29 IRDT 2021 [INFO] Time go forward4 unit
+Mon Jun 07 18:39:36 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:39:41 IRDT 2021 [ERROR] wrong  location was selected for pickup product
+Mon Jun 07 18:39:54 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:40:04 IRDT 2021 [ERROR] wrong  location was selected for pickup product
+Mon Jun 07 18:40:10 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:40:10 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:40:41 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:40:45 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:40:45 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:40:45 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:40:46 IRDT 2021 [INFO] Time go forward3 unit
+Mon Jun 07 18:40:54 IRDT 2021 [INFO] product picked up
+Mon Jun 07 18:41:06 IRDT 2021 [INFO] egg reach the desired amount.
+Mon Jun 07 18:41:06 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:41:06 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:41:06 IRDT 2021 [INFO] finished level1
+Mon Jun 07 18:41:10 IRDT 2021 [INFO] save game
+Mon Jun 07 18:41:37 IRDT 2021 [INFO] Signed In successfully
+(user : hossein )
+Mon Jun 07 18:41:42 IRDT 2021 [INFO] start level
+Mon Jun 07 18:48:27 IRDT 2021 [INFO] Signed In successfully
+(user : hossein )
+Mon Jun 07 18:51:05 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Mon Jun 07 18:51:07 IRDT 2021 [INFO] log out
+Mon Jun 07 18:53:01 IRDT 2021 [INFO] Signed In successfully
+(user : hossein )
+Mon Jun 07 18:53:04 IRDT 2021 [INFO] start level
+Mon Jun 07 18:53:14 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:53:20 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:53:24 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:53:30 IRDT 2021 [ERROR] Invalid animal name entered
+Mon Jun 07 18:53:35 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 07 18:53:40 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:53:40 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:53:40 IRDT 2021 [INFO] Time go forward2 unit
+Mon Jun 07 18:54:01 IRDT 2021 [INFO] Grass was planted
+Mon Jun 07 18:54:05 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:54:05 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 07 18:55:01 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:55:01 IRDT 2021 [INFO] Show information of map
+Mon Jun 07 18:55:01 IRDT 2021 [INFO] Time go forward2 unit
+Thu Jun 10 15:46:12 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 10 15:46:15 IRDT 2021 [INFO] start level
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:46:21 IRDT 2021 [INFO] Time go forward5 unit
+Thu Jun 10 15:46:32 IRDT 2021 [ERROR] The cage order location is incorrect
+Thu Jun 10 15:47:04 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:47:29 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:47:29 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:47:33 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:47:33 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:48:32 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 10 15:48:34 IRDT 2021 [INFO] start level
+Thu Jun 10 15:48:38 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:38 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:38 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:38 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:39 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:39 IRDT 2021 [INFO] Time go forward5 unit
+Thu Jun 10 15:48:46 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:48:54 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:54 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:48:58 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:48:58 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:52:38 IRDT 2021 [INFO] Signed In successfully
+(user : amir )
+Thu Jun 10 15:52:41 IRDT 2021 [INFO] start level
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:46 IRDT 2021 [INFO] Time go forward5 unit
+Thu Jun 10 15:52:51 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:52:56 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:52:56 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:53:03 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:53:08 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:53:08 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:53:22 IRDT 2021 [ERROR] The cage order location is incorrect
+Thu Jun 10 15:53:33 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:53:33 IRDT 2021 [INFO] Time go forward1 unit
+Thu Jun 10 15:53:38 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:53:46 IRDT 2021 [INFO] Cage level increased
+Thu Jun 10 15:53:48 IRDT 2021 [INFO] Show information of map
+Thu Jun 10 15:53:48 IRDT 2021 [INFO] Time go forward1 unit
