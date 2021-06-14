@@ -44,6 +44,9 @@ public class Manager {
     public HashMap<Product, Integer> getProductsInBarn() {
         return productsInBarn;
     }
+    public ArrayList<Grass> getGrassesList() {
+        return grassesList;
+    }
 
     public Manager(Levels level, Player player) {
         this.level = level;

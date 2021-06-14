@@ -195,6 +195,21 @@ public class InputProcessor {
     private void showInformation(){
         System.out.println(ANSI_BLUE+"Time : "+ manager.level.time.n);
         System.out.println(ANSI_BLUE+"Your Coins : "+manager.player.getCoins());
+        System.out.println(ANSI_GREEN+"               Grasses\n"+"+++++++++++++++++++++++++++++++++++++++++++");
+        String[][] grassMap = new String[6][6];
+        for (Grass grass : manager.getGrassesList()) {
+            grassMap[grass.getX()-1][grass.getY()-1] = "*";
+        }
+        for (int i = 0; i < 6; i++) {
+            for (int j = 0; j < 6; j++) {
+                if (grassMap[i][j] == null)
+                    System.out.print("|      ");
+                else
+                    System.out.print("|   "+grassMap[i][j]+"  ");
+            }
+            System.out.println("|");
+        }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_CYAN+"               Animals\n"+"+++++++++++++++++++++++++++++++++++++++++");
         for (DomesticAnimal domesticAnimal : manager.getDomesticAnimalsList()) {
             System.out.println("|"+domesticAnimal.name+manager.space(10,domesticAnimal.name)+"|"+domesticAnimal.remainingLife+manager.space(5,"10")+"|"+domesticAnimal.X+manager.space(5,"1")+"|"+domesticAnimal.Y+manager.space(5,"1"));
@@ -208,15 +223,15 @@ public class InputProcessor {
         for (Hound hound : manager.getHoundsList()) {
             System.out.println("|"+hound.name+manager.space(10,hound.name)+"|"+hound.X+manager.space(5,"1")+"|"+hound.Y+manager.space(5,"1"));
         }
-        System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_BLUE+"               Products In Map\n"+"+++++++++++++++++++++++++++++++++++++++++");
         for (Product product : manager.getProductsList()){
             System.out.println("|"+product.getName()+manager.space(10,product.getName())+"|"+product.getX()+manager.space(5,"1")+"|"+product.getY()+manager.space(5,"1"));
-        }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        }System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_PURPLE+"               Products In Barn\n"+"+++++++++++++++++++++++++++++++++++++++++");
         for (Map.Entry<Product,Integer> entry : manager.getProductsInBarn().entrySet()) {
             System.out.println("|"+entry.getKey().getName()+manager.space(10,entry.getKey().getName())+"|"+entry.getKey().getX()+manager.space(5,"1")+"|"+entry.getKey().getY()+manager.space(5,"1"));
-        }System.out.println("+++++++++++++++++++++++++++++++++++++++++");
+        }System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_YELLOW+"Tasks -> ");
         for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
             System.out.println(entry.getKey()+" : "+(manager.level.basicTasks.get(entry.getKey())-entry.getValue())+"/"+manager.level.basicTasks.get(entry.getKey()));
