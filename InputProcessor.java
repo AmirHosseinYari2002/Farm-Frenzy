@@ -231,7 +231,11 @@ public class InputProcessor {
         System.out.println(ANSI_PURPLE+"               Products In Barn\n"+"+++++++++++++++++++++++++++++++++++++++++");
         for (Map.Entry<Product,Integer> entry : manager.getProductsInBarn().entrySet()) {
             System.out.println("|"+entry.getKey().getName()+manager.space(10,entry.getKey().getName())+"|"+entry.getKey().getX()+manager.space(5,"1")+"|"+entry.getKey().getY()+manager.space(5,"1"));
-        }System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
+        }
+        for (Map.Entry<Animal,Integer> entry : manager.getAnimalInBarn().entrySet()) {
+            System.out.println("|"+entry.getKey().name);
+        }
+        System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_YELLOW+"Tasks -> ");
         for (Map.Entry<String,Integer> entry : manager.level.tasks.entrySet()){
             System.out.println(entry.getKey()+" : "+(manager.level.basicTasks.get(entry.getKey())-entry.getValue())+"/"+manager.level.basicTasks.get(entry.getKey()));

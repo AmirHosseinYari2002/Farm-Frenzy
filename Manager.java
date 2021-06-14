@@ -22,6 +22,7 @@ public class Manager {
     private ArrayList<Cat> catsList = new ArrayList<>();
     private ArrayList<WorkShop> workShops = new ArrayList<>();
     private HashMap<Product,Integer> loadedProducts = new HashMap<>();
+    private ArrayList<WildAnimal> loadedAnimals = new ArrayList<>();
     private HashMap<Product,Integer> unLoadedProduct = new HashMap<>();
     private ArrayList<Animal> animalsCalculatedInTask = new ArrayList<>();
     private HashSet<Product> productsCalculatedInTask = new HashSet<>();
@@ -46,6 +47,9 @@ public class Manager {
     }
     public ArrayList<Grass> getGrassesList() {
         return grassesList;
+    }
+    public HashMap<Animal, Integer> getAnimalInBarn() {
+        return animalInBarn;
     }
 
     public Manager(Levels level, Player player) {
@@ -505,6 +509,11 @@ public class Manager {
                     count++;
                 }
             }
+            for (Map.Entry<Animal, Integer> entry : animalInBarn.entrySet()){
+                if (entry.getKey().name.equals(name)){
+                    count++;
+                }
+            }
             if (count == 0)
                 return "notInBarn";
             if (amount > count)
@@ -518,11 +527,32 @@ public class Manager {
                 }
             }
             for (Product product : inTruck) {
-                productsInBarn.remove(product);
-                loadedProducts.put(product, 1);
+                if (product != null){
+                    productsInBarn.remove(product);
+                    loadedProducts.put(product, 1);
+                }
             }
-            Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * inTruck[0].getBarnSpace());
-            Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * inTruck[0].getBarnSpace());
+            if (inTruck[0] != null){
+                Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * inTruck[0].getBarnSpace());
+                Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * inTruck[0].getBarnSpace());
+            }
+            WildAnimal[] animalsInTruck = new WildAnimal[amount];
+            for (Map.Entry<Animal, Integer> entry : animalInBarn.entrySet()){
+                if (entry.getKey().name.equals(name) && i < amount && entry.getKey() instanceof WildAnimal){
+                    animalsInTruck[i] =(WildAnimal) entry.getKey();
+                    i++;
+                }
+            }
+            for (WildAnimal wildAnimal : animalsInTruck) {
+                if (wildAnimal != null){
+                    animalInBarn.remove(wildAnimal);
+                    loadedAnimals.add(wildAnimal);
+                }
+            }
+            if (animalsInTruck[0] != null){
+                Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() + amount * animalsInTruck[0].OccupiedSpace);
+                Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() - amount * animalsInTruck[0].OccupiedSpace);
+            }
         }
         return "loaded";
     }
@@ -530,26 +560,56 @@ public class Manager {
         if (checkTrip() != 0)
             return "Traveling";
         else {
-            int i = 0;
-            Product[] inTruck = new Product[loadedProducts.size()];
-            for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
-                if (entry.getKey().getName().equals(name)){
-                    inTruck[i] = entry.getKey();
-                    i++;
+            boolean isAnimal = false;
+            String[] wildAnimalNames = {"Lion", "Tiger", "Bear"};
+            for (int i = 0; i < 3; i++) {
+                if (name.equals(wildAnimalNames[i]))
+                    isAnimal = true;
+            }
+            if (isAnimal){
+                int i = 0;
+                WildAnimal[] inTruck = new WildAnimal[loadedAnimals.size()];
+                for (WildAnimal loadedAnimal : loadedAnimals) {
+                    if (loadedAnimal.name.equals(name)){
+                        inTruck[i] = loadedAnimal;
+                        i++;
+                    }
                 }
+                int spaceNeeded = 0;
+                for (int j = 0; j < i; j++) {
+                    spaceNeeded += inTruck[j].OccupiedSpace;
+                }
+                if (spaceNeeded > Barn.getInstance().getFreeSpace())
+                    return "notEnoughSpace";
+                for (WildAnimal wildAnimal : inTruck) {
+                    loadedAnimals.remove(wildAnimal);
+                    animalInBarn.put(wildAnimal, 1);
+                }
+                Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() - spaceNeeded);
+                Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() + spaceNeeded);
             }
-            int spaceNeeded = 0;
-            for (int j = 0; j < i; j++) {
-                spaceNeeded += inTruck[j].getBarnSpace();
+            else {
+                int i = 0;
+                Product[] inTruck = new Product[loadedProducts.size()];
+                for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
+                    if (entry.getKey().getName().equals(name)){
+                        inTruck[i] = entry.getKey();
+                        i++;
+                    }
+                }
+                int spaceNeeded = 0;
+                for (int j = 0; j < i; j++) {
+                    spaceNeeded += inTruck[j].getBarnSpace();
+                }
+                if (spaceNeeded > Barn.getInstance().getFreeSpace())
+                    return "notEnoughSpace";
+                for (Product product : inTruck) {
+                    loadedProducts.remove(product);
+                    productsInBarn.put(product, 1);
+                }
+                Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() - spaceNeeded);
+                Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() + spaceNeeded);
             }
-            if (spaceNeeded > Barn.getInstance().getFreeSpace())
-                return "notEnoughSpace";
-            for (Product product : inTruck) {
-                loadedProducts.remove(product);
-                productsInBarn.put(product, 1);
-            }
-            Barn.getInstance().setFreeSpace(Barn.getInstance().getFreeSpace() - spaceNeeded);
-            Car.getInstance().setEmptySpace(Car.getInstance().getEmptySpace() + spaceNeeded);
         }
         return "unLoaded";
     }
@@ -568,11 +628,19 @@ public class Manager {
             return -1;
         if (Car.getInstance().IsCarBack(level.time)){
             int sellPrice = 0;
-            for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
-                sellPrice += entry.getKey().getSellingPrice();
+            if (!loadedProducts.isEmpty()){
+                for (Map.Entry<Product, Integer> entry : loadedProducts.entrySet()){
+                    sellPrice += entry.getKey().getSellingPrice();
+                }
+                loadedProducts.clear();
+            }
+            if (!loadedAnimals.isEmpty()){
+                for (WildAnimal loadedAnimal : loadedAnimals) {
+                    sellPrice += loadedAnimal.price;
+                }
+                loadedAnimals.clear();
             }
             player.setCoins(player.getCoins()+sellPrice);
-            loadedProducts.clear();
             return sellPrice;
         }
         return -1;

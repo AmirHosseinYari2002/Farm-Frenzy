@@ -889,14 +889,3 @@ Thu Jun 10 15:53:46 IRDT 2021 [INFO] Cage level increased
 Thu Jun 10 15:53:48 IRDT 2021 [INFO] Show information of map
 Thu Jun 10 15:53:48 IRDT 2021 [INFO] Time go forward1 unit
 Mon Jun 14 11:52:53 IRDT 2021 [INFO] Signed In successfully
-(user : Mohsh )
-Mon Jun 14 11:52:55 IRDT 2021 [INFO] start level
-Mon Jun 14 11:52:59 IRDT 2021 [INFO] Grass was planted
-Mon Jun 14 11:53:01 IRDT 2021 [INFO] Show information of map
-Mon Jun 14 11:53:01 IRDT 2021 [INFO] Time go forward1 unit
-Mon Jun 14 11:53:53 IRDT 2021 [INFO] Signed In successfully
-(user : Mohsh )
-Mon Jun 14 11:53:55 IRDT 2021 [INFO] start level
-Mon Jun 14 11:53:59 IRDT 2021 [INFO] Grass was planted
-Mon Jun 14 11:54:01 IRDT 2021 [INFO] Show information of map
-Mon Jun 14 11:54:01 IRDT 2021 [INFO] Time go forward1 unit
