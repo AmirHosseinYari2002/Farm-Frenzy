@@ -889,3 +889,23 @@ Thu Jun 10 15:53:46 IRDT 2021 [INFO] Cage level increased
 Thu Jun 10 15:53:48 IRDT 2021 [INFO] Show information of map
 Thu Jun 10 15:53:48 IRDT 2021 [INFO] Time go forward1 unit
 Mon Jun 14 11:52:53 IRDT 2021 [INFO] Signed In successfully
+Mon Jun 14 18:57:19 IRDT 2021 [INFO] Signed In successfully
+(user : Mohsh )
+Mon Jun 14 18:57:20 IRDT 2021 [INFO] start level
+Mon Jun 14 18:57:23 IRDT 2021 [INFO] purchase animal was successful
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:26 IRDT 2021 [INFO] Time go forward6 unit
+Mon Jun 14 18:57:31 IRDT 2021 [INFO] Cage level increased
+Mon Jun 14 18:57:34 IRDT 2021 [INFO] Cage level increased
+Mon Jun 14 18:57:37 IRDT 2021 [INFO] Cage level increased
+Mon Jun 14 18:57:41 IRDT 2021 [INFO] product picked up
+Mon Jun 14 18:57:43 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:43 IRDT 2021 [INFO] Time go forward1 unit
+Mon Jun 14 18:57:49 IRDT 2021 [INFO] product picked up
+Mon Jun 14 18:57:51 IRDT 2021 [INFO] Show information of map
+Mon Jun 14 18:57:51 IRDT 2021 [INFO] Time go forward1 unit

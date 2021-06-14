@@ -228,12 +228,22 @@ public class InputProcessor {
         for (Product product : manager.getProductsList()){
             System.out.println("|"+product.getName()+manager.space(10,product.getName())+"|"+product.getX()+manager.space(5,"1")+"|"+product.getY()+manager.space(5,"1"));
         }System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
-        System.out.println(ANSI_PURPLE+"               Products In Barn\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        System.out.println(ANSI_PURPLE+"       Products and Animals In Barn\n"+"+++++++++++++++++++++++++++++++++++++++++");
+        int i = 0;
         for (Map.Entry<Product,Integer> entry : manager.getProductsInBarn().entrySet()) {
-            System.out.println("|"+entry.getKey().getName()+manager.space(10,entry.getKey().getName())+"|"+entry.getKey().getX()+manager.space(5,"1")+"|"+entry.getKey().getY()+manager.space(5,"1"));
+            System.out.print("|  "+entry.getKey().getName()+manager.space(7,entry.getKey().getName()));
+            i++;
+            if (i % 4 == 0)
+                System.out.println("|");
         }
         for (Map.Entry<Animal,Integer> entry : manager.getAnimalInBarn().entrySet()) {
-            System.out.println("|"+entry.getKey().name);
+            System.out.print("|  "+entry.getKey().name+manager.space(7,entry.getKey().name));
+            i++;
+            if (i % 4 == 0)
+                System.out.println("|");
+        }
+        if (i % 4 != 0){
+            System.out.println();
         }
         System.out.println("+++++++++++++++++++++++++++++++++++++++++\n");
         System.out.println(ANSI_YELLOW+"Tasks -> ");
