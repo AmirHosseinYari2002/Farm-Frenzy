@@ -79,18 +79,4 @@ public class FileManager {
             return false;
         }
     }
-
-    public static String[] getUserData (File file, String username){
-        try {
-            Scanner scanner = new Scanner(file);
-            while (scanner.hasNext()){
-                String line = scanner.nextLine();
-                if (line.contains(username))
-                    return line.split(",");
-            }
-        } catch (FileNotFoundException e) {
-            e.printStackTrace();
-        }
-        return null;
-    }
 }

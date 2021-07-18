@@ -1,9 +1,3 @@
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -17,20 +11,22 @@ public class Authentication {
     private String password;
     private static Scanner scanner = new Scanner(System.in);
 
-    public void initUserPass(String username, String password){
-        this.userName = username;
-        this.password = password;
+    public void initUserPass(){
+        System.out.print(InputProcessor.ANSI_BLUE+"Enter your Username: ");
+        this.userName = scanner.nextLine();
+        System.out.print(InputProcessor.ANSI_BLUE+"Enter your password: ");
+        this.password = scanner.nextLine();
     }
 
     public Player signIn(){
         Player player = null;
         System.out.println(InputProcessor.ANSI_PURPLE+"<<<<    Sign in panel   >>>>");
-        initUserPass("Mohsh","mohsh2002");
+        initUserPass();
         while (!checkUserPass()){
             System.err.println("ERROR! Sign in failed because of wrong username and/or password.");
             System.err.println("Try again...");
             System.out.println();
-            initUserPass("Mohsh","mohsh2002");
+            initUserPass();
             FileManager.addToFile(GameHandler.getInstance(),new Date().toString()+" ["+Log.ERROR+"] "+"Sign in failed");
         }
         System.out.println(InputProcessor.ANSI_GREEN+"Signed In successfully. Welcome "+this.userName);
@@ -126,5 +122,4 @@ public class Authentication {
     public File getUsers() {
         return users;
     }
-
 }
